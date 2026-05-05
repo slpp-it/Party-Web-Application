@@ -531,19 +531,83 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
                 grid-auto-columns: 100%;
             }
 
-            .vision-hero-copy h2 {
-                max-width: none;
+            .vision-hero-copy {
+                min-height: clamp(250px, 64vw, 320px);
+                padding: 18px 16px;
+                align-items: flex-end;
+                background:
+                    linear-gradient(180deg, rgba(120, 47, 42, 0.32), rgba(164, 84, 69, 0.18)),
+                    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+                    var(--vision-glass);
             }
 
-            .vision-hero-copy {
-                min-height: 260px;
+            .vision-hero-copy::before {
+                background:
+                    linear-gradient(180deg, rgba(61, 18, 17, 0.08), rgba(61, 18, 17, 0.04) 46%, rgba(61, 18, 17, 0.18)),
+                    linear-gradient(90deg, rgba(61, 18, 17, 0.12), rgba(61, 18, 17, 0.03) 44%, rgba(61, 18, 17, 0.02));
+            }
+
+            .vision-hero-video {
+                opacity: 0.5;
+                object-position: center center;
+                object-fit: cover;
+            }
+
+            .vision-hero-content {
+                max-width: min(100%, 32rem);
+                padding: 14px 14px 16px;
+                border-radius: 18px;
+                background:
+                    linear-gradient(180deg, rgba(18, 19, 28, 0.14), rgba(18, 19, 28, 0.03)),
+                    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0));
+                border: 1px solid rgba(255, 237, 205, 0.06);
+                box-shadow: 0 10px 18px rgba(37, 10, 10, 0.06);
+                backdrop-filter: blur(2px);
+                -webkit-backdrop-filter: blur(2px);
+            }
+
+            .vision-hero-copy h2 {
+                max-width: none;
+                margin-top: 12px;
+                font-size: clamp(1.9rem, 7.8vw, 2.9rem);
+                line-height: 1.02;
+            }
+
+            .vision-hero-copy p {
+                margin-top: 12px;
+                font-size: 0.98rem;
+                line-height: 1.58;
             }
         }
 
         @media (max-width: 520px) {
             .vision-hero-copy {
-                padding-left: 16px;
-                padding-right: 16px;
+                min-height: clamp(232px, 68vw, 290px);
+                padding: 16px 12px;
+            }
+
+            .vision-hero-video {
+                opacity: 0.5;
+            }
+
+            .vision-hero-content {
+                padding: 12px 12px 14px;
+                border-radius: 16px;
+            }
+
+            .vision-kicker {
+                padding: 8px 12px;
+                font-size: 0.68rem;
+                letter-spacing: 0.14em;
+            }
+
+            .vision-hero-copy h2 {
+                font-size: clamp(1.72rem, 8.8vw, 2.32rem);
+            }
+
+            .vision-hero-copy p {
+                font-size: 0.9rem;
+                line-height: 1.5;
             }
 
             .vision-card-toggle {

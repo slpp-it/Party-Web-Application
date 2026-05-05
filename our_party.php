@@ -287,6 +287,24 @@ $partyTimelineRecords = array_sum(array_map(
             z-index: 1;
         }
 
+        [data-float] {
+            opacity: 0;
+            transform: translate3d(0, 24px, 0) scale(0.98);
+            filter: blur(12px);
+            transition:
+                opacity 720ms cubic-bezier(.18, .84, .22, 1),
+                transform 720ms cubic-bezier(.18, .84, .22, 1),
+                filter 720ms cubic-bezier(.18, .84, .22, 1);
+            transition-delay: var(--float-delay, 0ms);
+            will-change: transform, opacity, filter;
+        }
+
+        [data-float].is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
         .party-head {
             display: block;
             margin-bottom: 18px;
@@ -931,7 +949,7 @@ $partyTimelineRecords = array_sum(array_map(
 <?php endif; ?>
 <section id="<?php echo htmlspecialchars($partyAppId, ENT_QUOTES, 'UTF-8'); ?>" class="party-app">
     <div class="party-shell">
-        <header class="party-head">
+        <header class="party-head" data-float style="--float-delay: 0ms;">
             <div class="party-head-copy">
                 <div class="party-head-lead">
                     <h2>History of the Party</h2>
@@ -960,7 +978,7 @@ $partyTimelineRecords = array_sum(array_map(
             </div>
         </header>
 
-        <section class="party-rail">
+        <section class="party-rail" data-float style="--float-delay: 90ms;">
             <div class="party-rail-head">
                 <div>
                     <h3>Years</h3>
@@ -976,7 +994,7 @@ $partyTimelineRecords = array_sum(array_map(
             <div class="party-rail-progress" aria-hidden="true"><span id="partyRailProgress"></span></div>
         </section>
 
-        <section class="party-panel">
+        <section class="party-panel" data-float style="--float-delay: 180ms;">
             <article class="party-feature" id="partyFeature">
                 <div class="party-feature-copy">
                     <div class="party-year-badge" id="partyFeatureYear">2020</div>
@@ -1007,9 +1025,28 @@ $partyTimelineRecords = array_sum(array_map(
     const featureTitle = root.querySelector("#partyFeatureTitle");
     const featureDescription = root.querySelector("#partyFeatureDescription");
     const featureEvents = root.querySelector("#partyFeatureEvents");
+    const floatItems = Array.from(root.querySelectorAll("[data-float]"));
 
     if (!yearTrack || !railProgress || !feature || !featureYear || !featureTitle || !featureDescription || !featureEvents) {
         return;
+    }
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && floatItems.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.18,
+            rootMargin: "0px 0px -8% 0px"
+        });
+
+        floatItems.forEach((item) => observer.observe(item));
+    } else {
+        floatItems.forEach((item) => item.classList.add("is-visible"));
     }
 
     const escapeHtml = (value) => String(value)
