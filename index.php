@@ -761,7 +761,7 @@ $sectionNavItems = [
         }
 
         video.hero-media {
-            background: #120807;
+            background: transparent;
         }
 
         .hero-slide.is-active .hero-media {
@@ -1045,6 +1045,74 @@ $sectionNavItems = [
             background: linear-gradient(90deg, #f4cf85, #fff2d1);
         }
 
+        .smart-top-button {
+            position: fixed;
+            right: max(18px, env(safe-area-inset-right, 0px) + 18px);
+            bottom: max(18px, env(safe-area-inset-bottom, 0px) + 18px);
+            z-index: 12;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 56px;
+            height: 56px;
+            padding: 0 18px;
+            border: 1px solid rgba(255, 237, 205, 0.18);
+            border-radius: 999px;
+            background:
+                linear-gradient(145deg, rgba(146, 56, 47, 0.88), rgba(95, 33, 29, 0.94)),
+                rgba(255,255,255,0.06);
+            color: var(--hero-ink);
+            box-shadow:
+                0 18px 38px rgba(44, 13, 12, 0.24),
+                inset 0 1px 0 rgba(255,255,255,0.12);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translate3d(0, 18px, 0) scale(0.92);
+            transition:
+                opacity 240ms cubic-bezier(.2, .8, .2, 1),
+                transform 240ms cubic-bezier(.2, .8, .2, 1),
+                visibility 240ms ease,
+                box-shadow 220ms cubic-bezier(.2, .8, .2, 1),
+                border-color 220ms cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .smart-top-button.is-visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        .smart-top-button:hover,
+        .smart-top-button:focus-visible {
+            border-color: rgba(255, 237, 205, 0.32);
+            box-shadow:
+                0 22px 42px rgba(44, 13, 12, 0.28),
+                inset 0 1px 0 rgba(255,255,255,0.14);
+        }
+
+        .smart-top-button:focus-visible {
+            outline: 2px solid rgba(255, 237, 205, 0.34);
+            outline-offset: 3px;
+        }
+
+        .smart-top-button-icon {
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .smart-top-button-label {
+            font-size: 0.84rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
         .section-separator {
             width: 100%;
             display: grid;
@@ -1053,6 +1121,7 @@ $sectionNavItems = [
             gap: 24px;
             margin: 0 auto;
             padding: 30px 18px 24px;
+            scroll-margin-top: 24px;
         }
 
         .page-main {
@@ -1250,9 +1319,10 @@ $sectionNavItems = [
         }
 
         .footer-social-link {
-            display: inline-flex;
+            display: grid;
+            grid-template-columns: 20px minmax(0, 1fr);
             align-items: center;
-            gap: 10px;
+            column-gap: 12px;
             min-height: 48px;
             padding: 0 14px;
             text-decoration: none;
@@ -1283,6 +1353,11 @@ $sectionNavItems = [
             width: 18px;
             height: 18px;
             flex-shrink: 0;
+            justify-self: center;
+        }
+
+        .footer-social-link span {
+            text-align: left;
         }
 
         .footer-bottom {
@@ -1926,6 +2001,18 @@ $sectionNavItems = [
                 grid-template-columns: 1fr;
             }
 
+            .footer-card[aria-label="Social media links"] {
+                gap: 12px;
+            }
+
+            .footer-social-link {
+                grid-template-columns: 22px minmax(0, 1fr);
+                min-height: 54px;
+                padding: 0 16px;
+                border-radius: 18px;
+                column-gap: 14px;
+            }
+
             .section-separator {
                 grid-template-columns: 1fr;
                 gap: 10px;
@@ -2002,58 +2089,109 @@ $sectionNavItems = [
             }
 
             .hero-slide {
-                min-height: 500px;
-                padding: 18px 14px 88px;
+                min-height: 540px;
+                padding: 16px 12px 88px;
             }
 
             .hero-copy {
-                width: min(calc(100% - 18px), 340px);
-                max-width: calc(100% - 18px);
-                padding: 14px 14px 16px;
-                border-radius: 18px;
+                width: calc(100% - 24px);
+                max-width: none;
+                padding: 19px 18px 20px;
+                border-radius: 24px;
                 background:
-                    linear-gradient(180deg, rgba(15, 18, 30, 0.03), rgba(15, 18, 30, 0)),
-                    linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
-                border-color: rgba(255, 244, 224, 0.04);
+                    linear-gradient(180deg, rgba(146, 42, 35, 0.16), rgba(104, 32, 27, 0.62) 54%, rgba(84, 28, 24, 0.74)),
+                    linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+                border-color: rgba(255, 244, 224, 0.2);
                 box-shadow:
-                    inset 0 1px 0 rgba(255,255,255,0.025),
-                    0 8px 18px rgba(12, 8, 18, 0.04);
-                backdrop-filter: blur(1.5px);
-                -webkit-backdrop-filter: blur(1.5px);
+                    inset 0 1px 0 rgba(255,255,255,0.12),
+                    inset 0 -18px 26px rgba(255, 203, 142, 0.05),
+                    0 20px 40px rgba(20, 8, 10, 0.24);
+                backdrop-filter: blur(13px);
+                -webkit-backdrop-filter: blur(13px);
             }
 
             .hero-copy h1 {
-                font-size: clamp(1.8rem, 7.6vw, 2.35rem);
+                font-size: clamp(1.9rem, 7.4vw, 2.45rem);
                 max-width: 100%;
-                line-height: 1.02;
+                line-height: 1;
+                letter-spacing: -0.045em;
+                text-shadow: 0 8px 22px rgba(9, 8, 16, 0.22);
             }
 
             .hero-copy p {
                 max-width: 100%;
-                line-height: 1.56;
-                font-size: 0.95rem;
+                line-height: 1.64;
+                font-size: 0.97rem;
+                color: rgba(255, 243, 225, 0.88);
             }
 
             .hero-slide::before {
                 background:
-                    linear-gradient(180deg, rgba(22, 10, 11, 0.08), rgba(22, 10, 11, 0.02) 45%, rgba(22, 10, 11, 0.22)),
-                    linear-gradient(90deg, rgba(22, 10, 11, 0.16), rgba(22, 10, 11, 0.03) 50%, rgba(22, 10, 11, 0));
+                    linear-gradient(180deg, rgba(22, 10, 11, 0.06), rgba(22, 10, 11, 0.02) 30%, rgba(22, 10, 11, 0.12) 62%, rgba(22, 10, 11, 0.28)),
+                    linear-gradient(90deg, rgba(22, 10, 11, 0.1), rgba(22, 10, 11, 0.03) 52%, rgba(22, 10, 11, 0.01));
             }
 
             .hero-media-wrap {
-                background: rgba(18, 8, 7, 0.3);
+                inset: 12px 12px 144px;
+                border-radius: 24px;
+                background:
+                    radial-gradient(circle at top center, rgba(255,255,255,0.12), transparent 28%),
+                    linear-gradient(180deg, rgba(98, 41, 36, 0.28), rgba(63, 22, 20, 0.22));
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.08),
+                    0 18px 32px rgba(22, 8, 9, 0.14);
             }
 
-            .hero-slide[data-media-type="image"] .hero-media {
-                object-fit: cover;
-                object-position: center center;
-                background: transparent;
+            .hero-slide[data-media-type="image"] .hero-media-wrap {
+                background:
+                    linear-gradient(180deg, rgba(18, 10, 11, 0.14), rgba(18, 10, 11, 0.2)),
+                    var(--slide-media) center center / cover no-repeat;
             }
 
-            .hero-slide[data-media-type="video"] .hero-media {
-                object-fit: cover;
+            .hero-slide[data-media-type="image"] .hero-media-wrap::before {
+                opacity: 1;
+                transform: none;
+                background:
+                    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0) 34%, rgba(18, 10, 11, 0.14));
+                filter: none;
+            }
+
+            .hero-slide[data-media-type="image"] .hero-media,
+            .hero-slide.is-active[data-media-type="image"] .hero-media,
+            .hero-slide.is-leaving[data-media-type="image"] .hero-media {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                object-fit: contain;
                 object-position: center center;
                 background: transparent;
+                transform: translateZ(0);
+                filter: drop-shadow(0 16px 28px rgba(23, 8, 8, 0.14));
+                clip-path: inset(0 0 0 0 round 0);
+            }
+
+            .hero-slide.is-active .hero-media-wrap::after {
+                opacity: 1;
+                inset: 12px;
+                border-radius: 22px;
+                border-color: rgba(255,255,255,0.16);
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.06),
+                    0 0 0 1px rgba(255, 228, 187, 0.04);
+            }
+
+            .hero-slide[data-media-type="video"] .hero-media,
+            .hero-slide.is-active[data-media-type="video"] .hero-media,
+            .hero-slide.is-leaving[data-media-type="video"] .hero-media {
+                width: 124%;
+                height: 148%;
+                margin: -24% 0 0 -12%;
+                object-fit: cover;
+                object-position: center 28%;
+                background: transparent;
+                transform: scale(1.2) translateZ(0);
+                filter: saturate(1.08) contrast(1.06) brightness(1.03);
+                clip-path: inset(0 0 0 0 round 0);
             }
 
             .hero-slide[data-media-anim="zoom"] .hero-media,
@@ -2067,21 +2205,69 @@ $sectionNavItems = [
                 gap: 8px;
                 right: 12px;
                 bottom: 12px;
+                padding: 6px;
+                border-radius: 999px;
+                background:
+                    linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)),
+                    rgba(84, 31, 27, 0.12);
+                border: 1px solid rgba(255, 239, 214, 0.12);
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.06),
+                    0 12px 28px rgba(28, 8, 8, 0.12);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
             }
 
             .hero-button {
-                width: 42px;
-                height: 42px;
+                width: 44px;
+                height: 44px;
+                border-color: rgba(255, 235, 201, 0.22);
+                background:
+                    linear-gradient(145deg, rgba(244, 214, 143, 0.24), rgba(255,255,255,0.1)),
+                    rgba(91, 33, 29, 0.18);
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.14),
+                    0 12px 24px rgba(61, 18, 17, 0.18);
             }
 
             .hero-dots {
-                left: 18px;
-                right: 72px;
-                bottom: 18px;
+                left: 20px;
+                right: 84px;
+                bottom: 20px;
                 transform: none;
                 justify-content: flex-start;
                 overflow-x: auto;
-                padding-bottom: 2px;
+                align-items: center;
+                gap: 9px;
+                padding: 6px 6px 4px;
+                border-radius: 999px;
+                background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+            }
+
+            .hero-dot {
+                width: 9px;
+                height: 9px;
+                background: rgba(255, 241, 219, 0.34);
+                box-shadow: 0 0 0 1px rgba(255, 241, 219, 0.06);
+            }
+
+            .hero-dot.active {
+                width: 28px;
+                height: 10px;
+                border-radius: 999px;
+                box-shadow: 0 0 16px rgba(244, 207, 133, 0.24);
+            }
+
+            .smart-top-button {
+                right: max(12px, env(safe-area-inset-right, 0px) + 12px);
+                bottom: max(12px, env(safe-area-inset-bottom, 0px) + 12px);
+                min-width: 50px;
+                height: 50px;
+                padding: 0 16px;
+            }
+
+            .smart-top-button-label {
+                font-size: 0.78rem;
             }
         }
 
@@ -2112,14 +2298,37 @@ $sectionNavItems = [
             }
 
             .hero-slide {
-                min-height: 460px;
-                padding: 16px 12px 82px;
+                min-height: 510px;
+                padding: 14px 10px 82px;
+            }
+
+            .hero-media-wrap {
+                inset: 10px 10px 138px;
+                border-radius: 22px;
+            }
+
+            .hero-slide[data-media-type="image"] .hero-media,
+            .hero-slide.is-active[data-media-type="image"] .hero-media,
+            .hero-slide.is-leaving[data-media-type="image"] .hero-media {
+                width: 100%;
+                height: 100%;
+                object-position: center center;
+            }
+
+            .hero-slide[data-media-type="video"] .hero-media,
+            .hero-slide.is-active[data-media-type="video"] .hero-media,
+            .hero-slide.is-leaving[data-media-type="video"] .hero-media {
+                width: 128%;
+                height: 154%;
+                margin: -28% 0 0 -14%;
+                object-position: center 26%;
+                transform: scale(1.24) translateZ(0);
             }
 
             .hero-copy {
-                width: min(calc(100% - 12px), 300px);
-                padding: 12px 12px 14px;
-                border-radius: 16px;
+                width: calc(100% - 20px);
+                padding: 16px 16px 18px;
+                border-radius: 20px;
             }
 
             .hero-copy > span {
@@ -2130,27 +2339,54 @@ $sectionNavItems = [
             }
 
             .hero-copy h1 {
-                font-size: clamp(1.6rem, 8.8vw, 2rem);
-                line-height: 1.02;
+                font-size: clamp(1.7rem, 8.5vw, 2.08rem);
+                line-height: 1.04;
             }
 
             .hero-copy p {
                 margin-top: 10px;
-                font-size: 0.88rem;
-                line-height: 1.5;
+                font-size: 0.94rem;
+                line-height: 1.58;
             }
 
             .hero-controls {
                 gap: 6px;
+                padding: 5px;
             }
 
             .hero-button {
-                width: 38px;
-                height: 38px;
+                width: 42px;
+                height: 42px;
+            }
+
+            .hero-dots {
+                left: 16px;
+                right: 78px;
+                bottom: 18px;
+                gap: 8px;
+                padding: 5px 5px 3px;
             }
 
             .hero-dot.active {
                 width: 24px;
+                height: 9px;
+            }
+
+            .smart-top-button {
+                min-width: 48px;
+                height: 48px;
+                padding: 0 14px;
+            }
+
+            .footer-social-link {
+                grid-template-columns: 20px minmax(0, 1fr);
+                min-height: 52px;
+                padding: 0 14px;
+                column-gap: 12px;
+            }
+
+            .smart-top-button-label {
+                display: none;
             }
         }
 
@@ -2188,13 +2424,12 @@ $sectionNavItems = [
             </button>
             <div class="hero-nav-panel" id="heroNavPanel">
                 <div class="hero-links">
-                    <a href="#top" style="--nav-index: 0;">Home</a>
-                    <a href="#vision" style="--nav-index: 1;">Vision</a>
-                    <a href="#our-party" style="--nav-index: 2;">Our Party</a>
-                    <a href="#leadership" style="--nav-index: 3;">Leadership</a>
-                    <a href="#districts" style="--nav-index: 4;">Districts</a>
+                    <?php foreach ($sectionNavItems as $index => $item): ?>
+                        <a href="#<?php echo htmlspecialchars($item['id'], ENT_QUOTES, 'UTF-8'); ?>" style="--nav-index: <?php echo $index; ?>;">
+                            <?php echo htmlspecialchars($item['label'], ENT_QUOTES, 'UTF-8'); ?>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
-                <a class="hero-action" href="#districts">Explore Now</a>
             </div>
         </nav>
 
@@ -2206,7 +2441,7 @@ $sectionNavItems = [
                         data-media-type="<?php echo htmlspecialchars((string) ($slide['media_type'] ?? 'image'), ENT_QUOTES, 'UTF-8'); ?>"
                         data-text-anim="<?php echo htmlspecialchars($slide['text_animation'], ENT_QUOTES, 'UTF-8'); ?>"
                         data-media-anim="<?php echo htmlspecialchars($slide['media_animation'], ENT_QUOTES, 'UTF-8'); ?>"
-                        style="<?php echo htmlspecialchars('--slide-eyebrow-color: ' . ($slide['eyebrow_color'] ?? '#FFF7EA') . '; --slide-title-color: ' . ($slide['title_color'] ?? '#FFF7EA') . '; --slide-description-color: ' . ($slide['description_color'] ?? 'rgba(255, 242, 221, 0.82)') . ';', ENT_QUOTES, 'UTF-8'); ?>"
+                        style="<?php echo htmlspecialchars('--slide-eyebrow-color: ' . ($slide['eyebrow_color'] ?? '#FFF7EA') . '; --slide-title-color: ' . ($slide['title_color'] ?? '#FFF7EA') . '; --slide-description-color: ' . ($slide['description_color'] ?? 'rgba(255, 242, 221, 0.82)') . '; --slide-media: url("' . ($slide['media'] ?? '') . '");', ENT_QUOTES, 'UTF-8'); ?>"
                     >
                         <div class="hero-media-wrap">
                             <?php if (($slide['media_type'] ?? 'image') === 'video'): ?>
@@ -2249,6 +2484,11 @@ $sectionNavItems = [
         </div>
     </div>
 </section>
+
+<button class="smart-top-button" type="button" id="smartTopButton" aria-label="Back to top">
+    <span class="smart-top-button-icon" aria-hidden="true">&#8593;</span>
+    <span class="smart-top-button-label">Top</span>
+</button>
 
 <aside class="section-tree-nav" aria-label="Section navigation">
     <ul class="section-tree-nav-list">
@@ -2418,7 +2658,8 @@ $sectionNavItems = [
         const heroShell = document.querySelector(".hero-shell");
         const heroNav = document.querySelector(".hero-nav");
         const menuToggle = heroNav ? heroNav.querySelector(".hero-menu-toggle") : null;
-        const navLinks = heroNav ? Array.from(heroNav.querySelectorAll(".hero-links a, .hero-action")) : [];
+        const navLinks = heroNav ? Array.from(heroNav.querySelectorAll(".hero-links a")) : [];
+        const smartTopButton = document.getElementById("smartTopButton");
         const heroCarousel = document.getElementById("heroCarousel");
         const track = document.getElementById("heroTrack");
         const prev = document.getElementById("heroPrev");
@@ -2471,6 +2712,44 @@ $sectionNavItems = [
                     syncNavState(false);
                 }
             });
+        }
+
+        navLinks.forEach((link) => {
+            link.addEventListener("click", (event) => {
+                const href = link.getAttribute("href") || "";
+                if (!href.startsWith("#")) {
+                    return;
+                }
+
+                const target = document.querySelector(href);
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            });
+        });
+
+        if (smartTopButton) {
+            const syncSmartTopButton = () => {
+                const shouldShow = window.scrollY > Math.max(320, window.innerHeight * 0.45);
+                smartTopButton.classList.toggle("is-visible", shouldShow);
+            };
+
+            smartTopButton.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
+            });
+
+            window.addEventListener("scroll", syncSmartTopButton, { passive: true });
+            window.addEventListener("resize", syncSmartTopButton);
+            syncSmartTopButton();
         }
 
         const getVideoClipBounds = (video, config) => {

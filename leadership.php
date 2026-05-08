@@ -26,14 +26,14 @@ $leadershipMembers = [
         'accent' => '#e2c06c',
         'photo' => 'images/mahinda.jpg',
     ],
-    [
-        'name' => 'Sagara Kariyawasam',
-        'position' => 'General Secretary',
-        'description' => 'Sagara Kariyawasam is a Sri Lankan lawyer, politician, and Member of Parliament (MP). Hon. Kariyawasam was born on 13 November 1967. He is the son of Albert Kariyawasum, who was a renowned politician from Southern province.',
-        'priority' => 2,
-        'accent' => '#d9b45a',
-        'photo' => 'images/sagala.jpg',
-    ],
+    // [
+    //     'name' => 'Sagara Kariyawasam',
+    //     'position' => 'General Secretary',
+    //     'description' => 'Sagara Kariyawasam is a Sri Lankan lawyer, politician, and Member of Parliament (MP). Hon. Kariyawasam was born on 13 November 1967. He is the son of Albert Kariyawasum, who was a renowned politician from Southern province.',
+    //     'priority' => 2,
+    //     'accent' => '#d9b45a',
+    //     'photo' => 'images/sagala.jpg',
+    // ],
     [
         'name' => 'Namal Rajapaksa',
         'position' => 'National Organizer',
@@ -41,23 +41,23 @@ $leadershipMembers = [
         'priority' => 3,
         'accent' => '#e6c778',
         'photo' => 'images/namal.jpg',
-    ],
-    [
-        'name' => 'Johnston Fernando',
-        'position' => 'Head of Operations',
-        'description' => 'Johnston Fernando is a Sri Lankan politician, former Cabinet Minister, Chief Government Whip and a former member of the Parliament of Sri Lanka from the Kurunegala District.',
-        'priority' => 5,
-        'accent' => '#d4aa51',
-        'photo' => 'images/Johnston.jpg',
-    ],
-    [
-        'name' => 'D.V.Chanaka',
-        'position' => 'National Convenor',
-        'description' => 'Denagama Vitharanage Chanaka Dinushan is a Sri Lankan politician and a member of the Parliament of Sri Lanka.',
-        'priority' => 4,
-        'accent' => '#dec16d',
-        'photo' => 'images/chanaka.jpg',
-    ],
+    ]
+    // [
+    //     'name' => 'Johnston Fernando',
+    //     'position' => 'Head of Operations',
+    //     'description' => 'Johnston Fernando is a Sri Lankan politician, former Cabinet Minister, Chief Government Whip and a former member of the Parliament of Sri Lanka from the Kurunegala District.',
+    //     'priority' => 5,
+    //     'accent' => '#d4aa51',
+    //     'photo' => 'images/Johnston.jpg',
+    // ],
+    // [
+    //     'name' => 'D.V.Chanaka',
+    //     'position' => 'National Convenor',
+    //     'description' => 'Denagama Vitharanage Chanaka Dinushan is a Sri Lankan politician and a member of the Parliament of Sri Lanka.',
+    //     'priority' => 4,
+    //     'accent' => '#dec16d',
+    //     'photo' => 'images/chanaka.jpg',
+    // ],
 ];
 
 usort($leadershipMembers, static fn ($a, $b) => $a['priority'] <=> $b['priority']);
@@ -209,19 +209,20 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            pointer-events: none;
         }
 
         .leadership-controls {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            pointer-events: auto;
         }
 
         .leadership-control {
             width: 42px;
             height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             border: 1px solid rgba(255, 231, 183, 0.1);
             border-radius: 999px;
             background:
@@ -236,6 +237,14 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
                 0 10px 20px rgba(71, 20, 18, 0.1);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
+        }
+
+        .leadership-control-label {
+            display: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .leadership-control:hover {
@@ -267,16 +276,23 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
         .leadership-track {
             display: grid;
             grid-auto-flow: column;
-            grid-auto-columns: calc((100% - 28px) / 3);
+            grid-auto-columns: calc((100% - 14px) / 2);
             gap: 14px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
             padding: 2px 2px 10px;
-            touch-action: pan-x;
+            overscroll-behavior-x: contain;
+            overscroll-behavior-y: auto;
+            touch-action: pan-x pan-y pinch-zoom;
             scroll-behavior: smooth;
             align-items: stretch;
+        }
+
+        .leadership-track.is-vertical-scroll {
+            scroll-snap-type: none;
+            scroll-behavior: auto;
         }
 
         .leadership-track::-webkit-scrollbar {
@@ -511,11 +527,19 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
 
         @media (max-width: 960px) {
             .leadership-topbar {
-                top: -58px;
+                position: static;
+                width: 100%;
+                margin-bottom: 10px;
+                justify-content: flex-end;
+            }
+
+            .leadership-controls {
+                width: auto;
+                justify-content: flex-end;
             }
 
             .leadership-track {
-                grid-auto-columns: calc((100% - 16px) / 2);
+                grid-auto-columns: calc((100% - 14px) / 2);
             }
 
             .leader-card {
@@ -548,20 +572,24 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             }
 
             .leadership-topbar {
-                position: static;
-                margin-bottom: 10px;
+                width: 100%;
                 justify-content: space-between;
             }
 
             .leadership-controls {
                 width: 100%;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
             }
 
             .leadership-track {
-                grid-auto-columns: calc(100vw - 52px);
+                grid-auto-columns: 100%;
                 gap: 14px;
                 padding-bottom: 10px;
+                overflow-x: hidden;
+                overscroll-behavior-x: auto;
+                touch-action: pan-y pinch-zoom;
             }
 
             .leader-card {
@@ -596,8 +624,15 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             }
 
             .leadership-control {
-                width: 40px;
+                width: 100%;
                 height: 40px;
+                gap: 8px;
+                border-radius: 14px;
+                font-size: 0.94rem;
+            }
+
+            .leadership-control-label {
+                display: inline;
             }
         }
     </style>
@@ -614,8 +649,14 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             <div class="leadership-slider">
                 <div class="leadership-topbar" data-float style="--float-delay: 80ms;">
                     <div class="leadership-controls">
-                        <button class="leadership-control" type="button" data-leadership-prev aria-label="Previous leadership card">&#8592;</button>
-                        <button class="leadership-control" type="button" data-leadership-next aria-label="Next leadership card">&#8594;</button>
+                        <button class="leadership-control" type="button" data-leadership-prev aria-label="Previous leadership card">
+                            <span aria-hidden="true">&#8592;</span>
+                            <span class="leadership-control-label">Previous</span>
+                        </button>
+                        <button class="leadership-control" type="button" data-leadership-next aria-label="Next leadership card">
+                            <span class="leadership-control-label">Next</span>
+                            <span aria-hidden="true">&#8594;</span>
+                        </button>
                     </div>
                 </div>
 
@@ -690,15 +731,26 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             }
 
             function getVisibleCards() {
-                if (window.innerWidth > 1180) {
-                    return 3;
-                }
-
                 if (window.innerWidth > 640) {
                     return 2;
                 }
 
                 return 1;
+            }
+
+            function getPageStartPositions() {
+                const visibleCards = getVisibleCards();
+                if (visibleCards === 1) {
+                    return cards.map((card) => card.offsetLeft);
+                }
+
+                const positions = [];
+
+                for (let index = 0; index < cards.length; index += visibleCards) {
+                    positions.push(cards[index].offsetLeft);
+                }
+
+                return positions.length ? positions : [0];
             }
 
             function getCardStep() {
@@ -709,22 +761,34 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             }
 
             function getPageCount() {
-                return Math.max(1, Math.ceil(cards.length / getVisibleCards()));
+                return getPageStartPositions().length;
             }
 
             function getActivePage() {
-                const step = getCardStep();
-                if (!step) {
+                const positions = getPageStartPositions();
+                if (!positions.length) {
                     return 0;
                 }
 
-                return Math.max(0, Math.min(getPageCount() - 1, Math.round(track.scrollLeft / (step * getVisibleCards()))));
+                let closestPage = 0;
+                let smallestDistance = Number.POSITIVE_INFINITY;
+
+                positions.forEach((position, index) => {
+                    const distance = Math.abs(track.scrollLeft - position);
+                    if (distance < smallestDistance) {
+                        smallestDistance = distance;
+                        closestPage = index;
+                    }
+                });
+
+                return closestPage;
             }
 
             function scrollToPage(pageIndex) {
-                const nextPage = Math.max(0, Math.min(getPageCount() - 1, pageIndex));
+                const positions = getPageStartPositions();
+                const nextPage = Math.max(0, Math.min(positions.length - 1, pageIndex));
                 track.scrollTo({
-                    left: nextPage * getCardStep() * getVisibleCards(),
+                    left: positions[nextPage] ?? 0,
                     behavior: "smooth"
                 });
             }
@@ -771,8 +835,17 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             });
 
             let resizeTimer = null;
+            let scrollStateTimer = null;
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let touchIntent = "";
 
-            track.addEventListener("scroll", updateSliderState, { passive: true });
+            track.addEventListener("scroll", () => {
+                updateSliderState();
+                pauseAutoSlide();
+                window.clearTimeout(scrollStateTimer);
+                scrollStateTimer = window.setTimeout(resumeAutoSlide, 700);
+            }, { passive: true });
             window.addEventListener("resize", () => {
                 window.clearTimeout(resizeTimer);
                 resizeTimer = window.setTimeout(() => {
@@ -781,6 +854,46 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
                     updateSliderState();
                 }, 120);
             });
+
+            track.addEventListener("touchstart", (event) => {
+                const touch = event.touches[0];
+                if (!touch) {
+                    return;
+                }
+
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+                touchIntent = "";
+                track.classList.remove("is-vertical-scroll");
+            }, { passive: true });
+
+            track.addEventListener("touchmove", (event) => {
+                const touch = event.touches[0];
+                if (!touch) {
+                    return;
+                }
+
+                const deltaX = Math.abs(touch.clientX - touchStartX);
+                const deltaY = Math.abs(touch.clientY - touchStartY);
+
+                if (!touchIntent) {
+                    if (deltaY > deltaX + 8) {
+                        touchIntent = "vertical";
+                        track.classList.add("is-vertical-scroll");
+                    } else if (deltaX > deltaY + 8) {
+                        touchIntent = "horizontal";
+                        track.classList.remove("is-vertical-scroll");
+                    }
+                }
+            }, { passive: true });
+
+            const resetTouchIntent = () => {
+                touchIntent = "";
+                track.classList.remove("is-vertical-scroll");
+            };
+
+            track.addEventListener("touchend", resetTouchIntent, { passive: true });
+            track.addEventListener("touchcancel", resetTouchIntent, { passive: true });
 
             const autoSlideDelay = 6000;
             let autoSlideTimer = null;

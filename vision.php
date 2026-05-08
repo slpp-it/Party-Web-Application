@@ -197,6 +197,7 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
         .vision-hero-copy {
             position: relative;
             overflow: hidden;
+            isolation: isolate;
             border-radius: var(--vision-radius-lg);
             border: 1px solid var(--vision-border);
             background:
@@ -217,8 +218,11 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center center;
             opacity: 0.31;
             filter: saturate(1.03) contrast(1.05);
+            transform: scale(1.02);
+            background: linear-gradient(135deg, rgba(120, 47, 42, 0.82), rgba(164, 84, 69, 0.72));
             pointer-events: none;
         }
 
@@ -532,38 +536,44 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
             }
 
             .vision-hero-copy {
-                min-height: clamp(250px, 64vw, 320px);
-                padding: 18px 16px;
+                min-height: clamp(380px, 88vw, 500px);
+                padding: 18px;
                 align-items: flex-end;
                 background:
-                    linear-gradient(180deg, rgba(120, 47, 42, 0.32), rgba(164, 84, 69, 0.18)),
+                    linear-gradient(180deg, rgba(120, 47, 42, 0.24), rgba(164, 84, 69, 0.12)),
                     linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
                     var(--vision-glass);
             }
 
             .vision-hero-copy::before {
                 background:
-                    linear-gradient(180deg, rgba(61, 18, 17, 0.08), rgba(61, 18, 17, 0.04) 46%, rgba(61, 18, 17, 0.18)),
-                    linear-gradient(90deg, rgba(61, 18, 17, 0.12), rgba(61, 18, 17, 0.03) 44%, rgba(61, 18, 17, 0.02));
+                    linear-gradient(180deg, rgba(61, 18, 17, 0.04) 0%, rgba(61, 18, 17, 0.02) 28%, rgba(61, 18, 17, 0.12) 56%, rgba(25, 9, 9, 0.44) 100%),
+                    linear-gradient(90deg, rgba(61, 18, 17, 0.14), rgba(61, 18, 17, 0.05) 48%, rgba(61, 18, 17, 0.02));
             }
 
             .vision-hero-video {
-                opacity: 0.5;
-                object-position: center center;
+                inset: -14% -4%;
+                width: 108%;
+                height: 128%;
+                opacity: 0.78;
+                object-position: center 38%;
                 object-fit: cover;
+                transform: scale(1.16);
+                filter: saturate(1.12) contrast(1.08) brightness(1.04);
             }
 
             .vision-hero-content {
-                max-width: min(100%, 32rem);
-                padding: 14px 14px 16px;
+                width: 100%;
+                max-width: none;
+                padding: 16px 16px 18px;
                 border-radius: 18px;
                 background:
-                    linear-gradient(180deg, rgba(18, 19, 28, 0.14), rgba(18, 19, 28, 0.03)),
-                    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0));
-                border: 1px solid rgba(255, 237, 205, 0.06);
-                box-shadow: 0 10px 18px rgba(37, 10, 10, 0.06);
-                backdrop-filter: blur(2px);
-                -webkit-backdrop-filter: blur(2px);
+                    linear-gradient(180deg, rgba(61, 18, 17, 0.14), rgba(61, 18, 17, 0.28)),
+                    linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+                border: 1px solid rgba(255, 237, 205, 0.14);
+                box-shadow: 0 16px 36px rgba(37, 10, 10, 0.16);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
             }
 
             .vision-hero-copy h2 {
@@ -582,16 +592,21 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
 
         @media (max-width: 520px) {
             .vision-hero-copy {
-                min-height: clamp(232px, 68vw, 290px);
-                padding: 16px 12px;
+                min-height: clamp(360px, 98vw, 460px);
+                padding: 14px;
             }
 
             .vision-hero-video {
-                opacity: 0.5;
+                inset: -18% -6%;
+                width: 112%;
+                height: 136%;
+                opacity: 0.82;
+                object-position: center 34%;
+                transform: scale(1.2);
             }
 
             .vision-hero-content {
-                padding: 12px 12px 14px;
+                padding: 14px 14px 16px;
                 border-radius: 16px;
             }
 
@@ -606,8 +621,8 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
             }
 
             .vision-hero-copy p {
-                font-size: 0.9rem;
-                line-height: 1.5;
+                font-size: 0.94rem;
+                line-height: 1.58;
             }
 
             .vision-card-toggle {
