@@ -307,6 +307,7 @@ $sectionNavItems = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLPP Srilanka</title>
+    <link rel="icon" type="image/png" href="images/testlogo.png">
     <style>
         :root {
             --hero-red: #b85a4d;
@@ -318,6 +319,10 @@ $sectionNavItems = [
             --hero-glass: rgba(255, 248, 238, 0.14);
             --hero-glass-strong: rgba(255, 248, 238, 0.2);
             --hero-border: rgba(255, 237, 205, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -680,9 +685,7 @@ $sectionNavItems = [
             grid-auto-flow: column;
             grid-auto-columns: 100%;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
             scrollbar-width: none;
-            scroll-behavior: smooth;
         }
 
         .hero-track::-webkit-scrollbar {
@@ -692,7 +695,6 @@ $sectionNavItems = [
         .hero-slide {
             position: relative;
             min-height: clamp(420px, 62vw, 620px);
-            scroll-snap-align: start;
             display: grid;
             align-items: end;
             padding: clamp(22px, 4vw, 42px);

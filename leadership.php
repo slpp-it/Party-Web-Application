@@ -72,6 +72,7 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leadership</title>
+    <link rel="icon" type="image/png" href="images/testlogo.png">
 <?php endif; ?>
     <style>
         :root {
@@ -279,20 +280,16 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             grid-auto-columns: calc((100% - 14px) / 2);
             gap: 14px;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
             padding: 2px 2px 10px;
             overscroll-behavior-x: contain;
             overscroll-behavior-y: auto;
             touch-action: pan-x pan-y pinch-zoom;
-            scroll-behavior: smooth;
             align-items: stretch;
         }
 
         .leadership-track.is-vertical-scroll {
-            scroll-snap-type: none;
-            scroll-behavior: auto;
         }
 
         .leadership-track::-webkit-scrollbar {

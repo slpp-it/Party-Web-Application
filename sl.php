@@ -231,6 +231,7 @@ foreach ($districts as $district) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Lanka District Project Map</title>
+    <link rel="icon" type="image/png" href="images/testlogo.png">
 <?php endif; ?>
     <style>
         :root {
@@ -757,7 +758,6 @@ foreach ($districts as $district) {
             align-content: start;
             padding-right: 8px;
             padding-bottom: 4px;
-            scroll-behavior: smooth;
         }
 
         .project-card {

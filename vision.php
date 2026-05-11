@@ -111,6 +111,7 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vision for Sri Lanka</title>
+    <link rel="icon" type="image/png" href="images/testlogo.png">
 <?php endif; ?>
     <style>
         :root {
@@ -373,8 +374,6 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
             grid-auto-columns: calc((100% - (16px * 3)) / 4);
             gap: 16px;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
             padding: 4px 2px 8px;
@@ -388,7 +387,6 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
             position: relative;
             display: grid;
             min-height: 100%;
-            scroll-snap-align: start;
             border-radius: var(--vision-radius-lg);
             border: 1px solid rgba(255, 237, 205, 0.1);
             background:

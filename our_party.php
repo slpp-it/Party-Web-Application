@@ -238,6 +238,7 @@ $partyTimelineRecords = array_sum(array_map(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Party</title>
+    <link rel="icon" type="image/png" href="images/testlogo.png">
 <?php endif; ?>
     <style>
         :root {
@@ -594,7 +595,6 @@ $partyTimelineRecords = array_sum(array_map(
             gap: 12px;
             overflow-x: auto;
             padding: 10px 4px 12px;
-            scroll-snap-type: x mandatory;
             scrollbar-width: none;
             touch-action: pan-x;
             cursor: grab;
