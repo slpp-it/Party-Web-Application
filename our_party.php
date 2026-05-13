@@ -238,9 +238,23 @@ $partyTimelineRecords = array_sum(array_map(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Party</title>
-    <link rel="icon" type="image/png" href="images/testlogo.png">
+    <link rel="icon" type="image/x-icon" href="images/slpp.ico">
 <?php endif; ?>
     <style>
+        html {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         :root {
             --party-red: #9f4f47;
             --party-red-deep: #6f241f;
@@ -263,6 +277,7 @@ $partyTimelineRecords = array_sum(array_map(
             padding: 0;
             color: var(--party-ink);
             font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            content-visibility: auto;
         }
 
         .party-shell {
@@ -279,6 +294,14 @@ $partyTimelineRecords = array_sum(array_map(
             box-shadow: var(--party-shadow);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
+            will-change: transform;
+        }
+
+        @media (max-width: 768px) {
+            .party-shell {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
         }
 
         .party-head,
@@ -599,6 +622,7 @@ $partyTimelineRecords = array_sum(array_map(
             touch-action: pan-x;
             cursor: grab;
             user-select: none;
+            contain: layout style paint;
         }
 
         .party-rail-track.is-dragging {
@@ -637,8 +661,8 @@ $partyTimelineRecords = array_sum(array_map(
             background: rgba(255,255,255,0.08);
             color: var(--party-ink);
             cursor: pointer;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: transform var(--party-ease), box-shadow var(--party-ease), border-color var(--party-ease), background var(--party-ease);
         }
 
@@ -942,10 +966,163 @@ $partyTimelineRecords = array_sum(array_map(
                 scroll-behavior: auto !important;
             }
         }
+
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at top left, rgba(201, 104, 86, 0.24), transparent 24%),
+                radial-gradient(circle at top right, rgba(228, 191, 109, 0.22), transparent 28%),
+                linear-gradient(180deg, #9f4f47 0%, #b76052 18%, #c77158 34%, #da975f 54%, #e6b765 72%, #efcf93 88%, #f3dcc2 100%);
+            transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1), visibility 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page-loader.is-loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .page-loader-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .page-loader-logo {
+            width: clamp(100px, 18vw, 160px);
+            height: auto;
+            object-fit: contain;
+            position: relative;
+            animation: logoPulse 3s ease-in-out infinite;
+            filter: drop-shadow(0 12px 32px rgba(61, 18, 17, 0.4));
+            text-decoration: none;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.95; }
+        }
+
+        .page-loader-progress {
+            margin-top: 0;
+            width: clamp(140px, 22vw, 220px);
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-loader-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, rgba(244, 210, 122, 0.9), rgba(255, 255, 255, 0.95), rgba(244, 210, 122, 0.9));
+            background-size: 200% 100%;
+            border-radius: 999px;
+            animation: progressGlow 2s ease-in-out infinite;
+            will-change: width;
+            box-shadow: 0 0 12px rgba(244, 210, 122, 0.6);
+        }
+
+        @keyframes progressGlow {
+            0% { width: 0%; background-position: 100% 0; }
+            50% { width: 75%; background-position: 50% 0; }
+            100% { width: 100%; background-position: 0% 0; }
+        }
+
+        body.is-loading {
+            overflow: hidden;
+        }
     </style>
 <?php if (!$partyEmbed): ?>
 </head>
 <body>
+<div class="page-loader" id="pageLoader">
+    <div class="page-loader-content">
+        <img class="page-loader-logo" src="images/testlogo.png" alt="Loading">
+        <div class="page-loader-progress">
+            <div class="page-loader-progress-bar"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const loader = document.getElementById('pageLoader');
+        if (!loader) return;
+        
+        let resourcesLoaded = 0;
+        let totalResources = 0;
+        
+        const images = document.querySelectorAll('img[src]');
+        const videos = document.querySelectorAll('video');
+        totalResources = images.length + videos.length;
+        
+        const checkAllLoaded = function() {
+            if (totalResources === 0 || resourcesLoaded >= totalResources) {
+                setTimeout(function() {
+                    loader.classList.add('is-loaded');
+                    document.body.classList.remove('is-loading');
+                }, 500);
+            }
+        };
+        
+        window.addEventListener('load', function() {
+            if (totalResources === 0) {
+                checkAllLoaded();
+            }
+        });
+        
+        images.forEach(function(img) {
+            if (img.complete) {
+                resourcesLoaded++;
+                checkAllLoaded();
+            } else {
+                img.addEventListener('load', function() {
+                    resourcesLoaded++;
+                    checkAllLoaded();
+                });
+                img.addEventListener('error', function() {
+                    resourcesLoaded++;
+                    checkAllLoaded();
+                });
+            }
+        });
+        
+        videos.forEach(function(video) {
+            if (video.readyState >= 3) {
+                resourcesLoaded++;
+                checkAllLoaded();
+            } else {
+                video.addEventListener('loadeddata', function() {
+                    resourcesLoaded++;
+                    checkAllLoaded();
+                });
+                video.addEventListener('error', function() {
+                    resourcesLoaded++;
+                    checkAllLoaded();
+                });
+            }
+        });
+        
+        setTimeout(function() {
+            if (!loader.classList.contains('is-loaded')) {
+                loader.classList.add('is-loaded');
+                document.body.classList.remove('is-loading');
+            }
+        }, 5000);
+    })();
+</script>
 <?php endif; ?>
 <section id="<?php echo htmlspecialchars($partyAppId, ENT_QUOTES, 'UTF-8'); ?>" class="party-app">
     <div class="party-shell">

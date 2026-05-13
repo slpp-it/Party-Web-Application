@@ -307,7 +307,7 @@ $sectionNavItems = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLPP Srilanka</title>
-    <link rel="icon" type="image/png" href="images/testlogo.png">
+    <link rel="icon" type="image/x-icon" href="images/slpp.ico">
     <style>
         :root {
             --hero-red: #b85a4d;
@@ -323,6 +323,12 @@ $sectionNavItems = [
 
         html {
             scroll-behavior: smooth;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -331,6 +337,8 @@ $sectionNavItems = [
                 radial-gradient(circle at top left, rgba(201, 104, 86, 0.24), transparent 24%),
                 radial-gradient(circle at top right, rgba(228, 191, 109, 0.22), transparent 28%),
                 linear-gradient(180deg, #9f4f47 0%, #b76052 18%, #c77158 34%, #da975f 54%, #e6b765 72%, #efcf93 88%, #f3dcc2 100%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .top-hero {
@@ -377,17 +385,26 @@ $sectionNavItems = [
             border-radius: 24px;
             background: var(--hero-glass);
             border: 1px solid var(--hero-border);
-            backdrop-filter: blur(18px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             overflow: hidden;
             isolation: isolate;
             opacity: 0;
             transform: translate3d(0, -22px, 0) scale(0.985);
             filter: blur(14px);
+            will-change: opacity, transform, filter;
             transition:
                 opacity 760ms cubic-bezier(.18, .84, .22, 1),
                 transform 760ms cubic-bezier(.18, .84, .22, 1),
                 filter 760ms cubic-bezier(.18, .84, .22, 1),
                 box-shadow 320ms cubic-bezier(.2, .8, .2, 1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-nav {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
         }
 
         .hero-shell.is-nav-ready .hero-nav {
@@ -397,19 +414,7 @@ $sectionNavItems = [
         }
 
         .hero-nav::before {
-            content: "";
-            position: absolute;
-            top: -28%;
-            bottom: -28%;
-            left: -24%;
-            width: 18%;
-            background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.34), rgba(255,255,255,0));
-            transform: skewX(-18deg);
-            filter: blur(1px);
-            opacity: 0;
-            pointer-events: none;
-            z-index: 0;
-            animation: heroNavSweep 2.4s ease-in-out infinite;
+            display: none;
         }
 
         .hero-nav::after {
@@ -439,6 +444,7 @@ $sectionNavItems = [
             opacity: 0;
             transform: translate3d(-18px, 0, 0) scale(0.94);
             filter: blur(10px);
+            will-change: opacity, transform, filter;
             transition:
                 opacity 620ms cubic-bezier(.18, .84, .22, 1) 120ms,
                 transform 620ms cubic-bezier(.18, .84, .22, 1) 120ms,
@@ -463,16 +469,23 @@ $sectionNavItems = [
             filter: drop-shadow(0 10px 22px rgba(61, 18, 17, 0.18));
             transform: rotateX(0deg) rotateY(0deg) scale(1);
             opacity: 1;
+            will-change: transform, opacity;
             transition: opacity 220ms cubic-bezier(.2, .8, .2, 1);
-            animation: heroLogoBlink 1.2s ease-in-out infinite;
-            will-change: transform, filter, opacity;
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .hero-brand-logo {
+                filter: drop-shadow(0 6px 14px rgba(61, 18, 17, 0.14));
+            }
         }
 
         .hero-brand:hover .hero-brand-logo,
         .hero-brand:focus-visible .hero-brand-logo {
             opacity: 1;
-            animation: heroLogoRoll 1.05s cubic-bezier(.45, .05, .55, .95) infinite;
+            transform: scale(1.05);
+            transition: transform 220ms cubic-bezier(.2, .8, .2, 1);
         }
 
         .hero-brand:hover,
@@ -588,6 +601,7 @@ $sectionNavItems = [
             opacity: 0;
             transform: translate3d(0, -16px, 0) scale(0.92);
             filter: blur(10px);
+            will-change: opacity, transform, filter;
             transition:
                 opacity 580ms cubic-bezier(.18, .84, .22, 1) calc(180ms + (var(--nav-index, 0) * 70ms)),
                 transform 580ms cubic-bezier(.18, .84, .22, 1) calc(180ms + (var(--nav-index, 0) * 70ms)),
@@ -627,6 +641,7 @@ $sectionNavItems = [
             transform: translate3d(18px, 0, 0) scale(0.92);
             filter: blur(10px);
             box-shadow: 0 18px 32px rgba(61, 18, 17, 0.16);
+            will-change: opacity, transform, filter;
             transition:
                 opacity 640ms cubic-bezier(.18, .84, .22, 1) 420ms,
                 transform 640ms cubic-bezier(.18, .84, .22, 1) 420ms,
@@ -686,6 +701,7 @@ $sectionNavItems = [
             grid-auto-columns: 100%;
             overflow-x: auto;
             scrollbar-width: none;
+            contain: layout style paint;
         }
 
         .hero-track::-webkit-scrollbar {
@@ -699,6 +715,8 @@ $sectionNavItems = [
             align-items: end;
             padding: clamp(22px, 4vw, 42px);
             isolation: isolate;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .hero-media-wrap {
@@ -710,6 +728,7 @@ $sectionNavItems = [
                 radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 24%),
                 linear-gradient(145deg, rgba(64, 24, 21, 0.16), rgba(64, 24, 21, 0.04), rgba(233, 192, 110, 0.03));
             transform: translateZ(0);
+            will-change: transform;
         }
 
         .hero-media-wrap::before {
@@ -722,6 +741,13 @@ $sectionNavItems = [
                 linear-gradient(120deg, rgba(255,255,255,0) 18%, rgba(255,255,255,0.22) 34%, rgba(255,255,255,0.82) 40%, rgba(255,255,255,0.22) 46%, rgba(255,255,255,0) 58%);
             opacity: 0;
             transform: translateX(-34%) skewX(-14deg);
+            will-change: transform, opacity;
+        }
+
+        @media (max-width: 768px) {
+            .hero-media-wrap::before {
+                display: none;
+            }
         }
 
         .hero-media-wrap::after {
@@ -2408,9 +2434,168 @@ $sectionNavItems = [
                 transform: none;
             }
         }
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at top left, rgba(201, 104, 86, 0.24), transparent 24%),
+                radial-gradient(circle at top right, rgba(228, 191, 109, 0.22), transparent 28%),
+                linear-gradient(180deg, #9f4f47 0%, #b76052 18%, #c77158 34%, #da975f 54%, #e6b765 72%, #efcf93 88%, #f3dcc2 100%);
+            transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1), visibility 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page-loader.is-loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .page-loader-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .page-loader-logo {
+            width: clamp(100px, 18vw, 160px);
+            height: auto;
+            object-fit: contain;
+            position: relative;
+            animation: logoPulse 3s ease-in-out infinite;
+            filter: drop-shadow(0 12px 32px rgba(61, 18, 17, 0.4));
+            text-decoration: none;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.95; }
+        }
+
+        .page-loader-progress {
+            margin-top: 0;
+            width: clamp(140px, 22vw, 220px);
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-loader-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, rgba(244, 210, 122, 0.9), rgba(255, 255, 255, 0.95), rgba(244, 210, 122, 0.9));
+            background-size: 200% 100%;
+            border-radius: 999px;
+            animation: progressGlow 2s ease-in-out infinite;
+            will-change: width;
+            box-shadow: 0 0 12px rgba(244, 210, 122, 0.6);
+        }
+
+        @keyframes progressGlow {
+            0% { width: 0%; background-position: 100% 0; }
+            50% { width: 75%; background-position: 50% 0; }
+            100% { width: 100%; background-position: 0% 0; }
+        }
+
+        body.is-loading {
+            overflow: hidden;
+        }
     </style>
 </head>
-<body>
+<body class="is-loading">
+<div class="page-loader" id="pageLoader">
+    <div class="page-loader-content">
+        <img class="page-loader-logo" src="images/testlogo.png" alt="Loading">
+        <div class="page-loader-progress">
+            <div class="page-loader-progress-bar"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const loader = document.getElementById('pageLoader');
+        if (!loader) return;
+        
+        let resourcesLoaded = 0;
+        let totalResources = 0;
+        
+        // Count all images and videos
+        const images = document.querySelectorAll('img[src]');
+        const videos = document.querySelectorAll('video');
+        totalResources = images.length + videos.length;
+        
+        // Track resource loading
+        const checkAllLoaded = function() {
+            if (totalResources === 0 || resourcesLoaded >= totalResources) {
+                setTimeout(function() {
+                    loader.classList.add('is-loaded');
+                    document.body.classList.remove('is-loading');
+                }, 500);
+            }
+        };
+        
+        // Wait for window load first
+        window.addEventListener('load', function() {
+            if (totalResources === 0) {
+                checkAllLoaded();
+            }
+        });
+        
+        // Track image loading
+        images.forEach(function(img) {
+            if (img.complete) {
+                resourcesLoaded++;
+                checkAllLoaded();
+            } else {
+                img.addEventListener('load', function() {
+                    resourcesLoaded++;
+                    checkAllLoaded();
+                });
+                img.addEventListener('error', function() {
+                    resourcesLoaded++;
+                    checkAllLoaded();
+                });
+            }
+        });
+        
+        // Track video loading
+        videos.forEach(function(video) {
+            if (video.readyState >= 3) {
+                resourcesLoaded++;
+                checkAllLoaded();
+            } else {
+                video.addEventListener('loadeddata', function() {
+                    resourcesLoaded++;
+                    checkAllLoaded();
+                });
+                video.addEventListener('error', function() {
+                    resourcesLoaded++;
+                    checkAllLoaded();
+                });
+            }
+        });
+        
+        // Fallback: hide after 5 seconds max
+        setTimeout(function() {
+            if (!loader.classList.contains('is-loaded')) {
+                loader.classList.add('is-loaded');
+                document.body.classList.remove('is-loading');
+            }
+        }, 5000);
+    })();
+</script>
+
 <section class="top-hero" id="top">
     <div class="hero-shell">
         <nav class="hero-nav" aria-label="Main navigation">
@@ -2713,7 +2898,7 @@ $sectionNavItems = [
                 if (window.innerWidth > 860) {
                     syncNavState(false);
                 }
-            });
+            }, { passive: true });
         }
 
         navLinks.forEach((link) => {
@@ -2750,7 +2935,7 @@ $sectionNavItems = [
             });
 
             window.addEventListener("scroll", syncSmartTopButton, { passive: true });
-            window.addEventListener("resize", syncSmartTopButton);
+            window.addEventListener("resize", syncSmartTopButton, { passive: true });
             syncSmartTopButton();
         }
 
@@ -2941,7 +3126,7 @@ $sectionNavItems = [
         });
 
         track.addEventListener("scroll", update, { passive: true });
-        window.addEventListener("resize", applyUpdate);
+        window.addEventListener("resize", applyUpdate, { passive: true });
         applyUpdate();
 
         window.requestAnimationFrame(() => {
