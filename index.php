@@ -327,6 +327,18 @@ $sectionNavItems = [
             -webkit-tap-highlight-color: transparent;
         }
 
+        @media (max-width: 768px) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            body {
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior-y: contain;
+                scroll-padding-top: 0;
+            }
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -1424,73 +1436,201 @@ $sectionNavItems = [
             contain-intrinsic-size: 960px;
         }
 
-        body.is-scrolling .hero-nav::before,
-        body.is-scrolling .section-separator-copy::after,
-        body.is-scrolling .hero-brand-logo,
-        body.is-scrolling .map-helper-icon,
-        body.is-scrolling .project-map-pin::before {
-            animation-play-state: paused !important;
+        @media (max-width: 768px) {
+            .page-section-chunk {
+                content-visibility: visible;
+                contain: layout;
+            }
+
+            .hero-carousel,
+            .hero-track,
+            .hero-slide {
+                will-change: transform;
+                transform: translateZ(0);
+            }
+
+            .hero-media {
+                will-change: transform;
+                transform: translateZ(0);
+            }
+
+            .vision-shell,
+            .party-shell,
+            .leadership-shell {
+                will-change: transform;
+                transform: translateZ(0);
+            }
+
+            .section-separator-copy::after,
+            .hero-nav::before {
+                display: none;
+            }
+
+            .hero-shell {
+                will-change: transform;
+            }
+
+            .hero-brand-logo {
+                animation: none;
+            }
+
+            .map-helper-icon,
+            .project-map-pin::before {
+                animation: none;
+            }
         }
 
-        body.is-scrolling .hero-nav,
-        body.is-scrolling .section-tree-nav-label,
-        body.is-scrolling .section-separator-copy,
-        body.is-scrolling .vision-shell,
-        body.is-scrolling .party-shell,
-        body.is-scrolling .leadership-shell,
-        body.is-scrolling .map-shell,
-        body.is-scrolling .project-detail-shell {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-        }
+        @media (min-width: 769px) {
+            body.is-scrolling .hero-nav::before,
+            body.is-scrolling .section-separator-copy::after,
+            body.is-scrolling .hero-brand-logo,
+            body.is-scrolling .map-helper-icon,
+            body.is-scrolling .project-map-pin::before {
+                animation-play-state: paused !important;
+            }
 
-        body.is-scrolling .vision-shell,
-        body.is-scrolling .party-shell,
-        body.is-scrolling .leadership-shell,
-        body.is-scrolling .map-shell,
-        body.is-scrolling .project-detail-shell {
-            box-shadow: none !important;
+            body.is-scrolling .hero-nav,
+            body.is-scrolling .section-tree-nav-label,
+            body.is-scrolling .section-separator-copy,
+            body.is-scrolling .vision-shell,
+            body.is-scrolling .party-shell,
+            body.is-scrolling .leadership-shell,
+            body.is-scrolling .map-shell,
+            body.is-scrolling .project-detail-shell {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+
+            body.is-scrolling .vision-shell,
+            body.is-scrolling .party-shell,
+            body.is-scrolling .leadership-shell,
+            body.is-scrolling .map-shell,
+            body.is-scrolling .project-detail-shell {
+                box-shadow: none !important;
+            }
         }
 
         .section-tree-nav {
             position: fixed;
             top: 50%;
-            right: max(20px, env(safe-area-inset-right, 0px) + 20px);
-            z-index: 8;
+            right: max(70px, env(safe-area-inset-right, 0px) + 70px);
             transform: translateY(-50%);
+            z-index: 100;
             display: grid;
             gap: 0;
-            width: clamp(220px, 16vw, 260px);
-            padding: 18px 0 18px 16px;
+            width: auto;
+            max-width: 0;
+            padding: 0;
+            overflow: hidden;
+            transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
             pointer-events: none;
         }
 
+        .section-tree-nav.is-expanded {
+            max-width: clamp(280px, 25vw, 340px);
+            padding: 28px 24px 28px 24px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        @media (max-width: 768px) {
+            .section-tree-nav {
+                bottom: max(100px, env(safe-area-inset-bottom, 0px) + 100px);
+                top: auto;
+                right: max(20px, env(safe-area-inset-right, 0px) + 20px);
+                transform: none;
+            }
+        }
+
+        .section-tree-nav-toggle {
+            position: fixed;
+            top: 50%;
+            right: max(16px, env(safe-area-inset-right, 0px) + 16px);
+            transform: translateY(-50%);
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(184, 90, 77, 0.95), rgba(143, 70, 61, 0.98));
+            border: 3px solid rgba(228, 191, 109, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 6px 24px rgba(61, 18, 17, 0.4);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s, border-color 0.3s, box-shadow 0.3s;
+            -webkit-tap-highlight-color: transparent;
+            pointer-events: auto !important;
+            touch-action: manipulation;
+        }
+
+        .section-tree-nav-toggle:hover {
+            transform: translateY(-50%) scale(1.08);
+            background: linear-gradient(135deg, rgba(184, 90, 77, 1), rgba(143, 70, 61, 1));
+            border-color: #fff5d7;
+            box-shadow: 0 8px 32px rgba(61, 18, 17, 0.5);
+        }
+
+        .section-tree-nav-toggle:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .section-tree-nav-toggle {
+                width: 64px;
+                height: 64px;
+                bottom: max(20px, env(safe-area-inset-bottom, 0px) + 20px);
+                top: auto;
+                right: max(20px, env(safe-area-inset-right, 0px) + 20px);
+                transform: none;
+                z-index: 99999;
+                border-width: 4px;
+            }
+
+            .section-tree-nav-toggle:hover {
+                transform: scale(1.08);
+            }
+
+            .section-tree-nav-toggle:active {
+                transform: scale(0.95);
+            }
+        }
+
+        .section-tree-nav-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: #fff5d7;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .section-tree-nav.is-expanded .section-tree-nav-toggle svg {
+            transform: rotate(45deg);
+        }
+
+        @media (min-width: 1400px) {
+            .section-tree-nav {
+                right: max(100px, env(safe-area-inset-right, 0px) + 100px);
+            }
+        }
+
         .section-tree-nav::before {
-            content: "";
-            position: absolute;
-            right: 16px;
-            top: 18px;
-            bottom: 18px;
-            width: 2px;
-            border-radius: 999px;
-            background:
-                repeating-linear-gradient(
-                    to bottom,
-                    rgba(255, 240, 214, 0.9) 0 7px,
-                    rgba(255, 240, 214, 0) 7px 16px
-                );
-            opacity: 0.62;
-            box-shadow: 0 0 16px rgba(255, 234, 189, 0.16);
+            display: none;
         }
 
         .section-tree-nav::after {
             content: "";
             position: absolute;
-            inset: 0 0 0 auto;
-            width: 100%;
-            border-radius: 999px 0 0 999px;
-            background: linear-gradient(270deg, rgba(255, 248, 238, 0.12), rgba(255, 248, 238, 0.02) 42%, rgba(255, 248, 238, 0));
-            opacity: 0.92;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(184, 90, 77, 0.92), rgba(143, 70, 61, 0.88));
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 12px 40px rgba(61, 18, 17, 0.45);
+            border: 2px solid rgba(228, 191, 109, 0.6);
             pointer-events: none;
         }
 
@@ -1498,102 +1638,62 @@ $sectionNavItems = [
             list-style: none;
             margin: 0;
             padding: 0;
-            display: grid;
-            gap: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
         }
 
         .section-tree-nav-item {
             position: relative;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 30px;
-            align-items: center;
-            gap: 12px;
+            width: 100%;
         }
 
         .section-tree-nav-link {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 30px;
-            align-items: center;
-            gap: 12px;
+            display: block;
+            width: 100%;
             color: inherit;
             text-decoration: none;
             pointer-events: auto;
         }
 
         .section-tree-nav-dot {
-            position: relative;
-            width: 30px;
-            height: 30px;
-            display: grid;
-            place-items: center;
-        }
-
-        .section-tree-nav-dot::before {
-            content: "";
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 246, 226, 0.3);
-            border: 1px solid rgba(255, 241, 219, 0.42);
-            box-shadow: 0 0 0 6px rgba(255, 241, 219, 0.05);
-            transition: transform 260ms cubic-bezier(.2, .8, .2, 1), background 260ms cubic-bezier(.2, .8, .2, 1), border-color 260ms cubic-bezier(.2, .8, .2, 1), box-shadow 260ms cubic-bezier(.2, .8, .2, 1);
-        }
-
-        .section-tree-nav-dot::after {
-            content: "";
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            width: 18px;
-            height: 1px;
-            background: linear-gradient(270deg, rgba(255, 241, 219, 0.46), rgba(255, 241, 219, 0));
-            transform: translateY(-50%);
-            opacity: 0.72;
+            display: none;
         }
 
         .section-tree-nav-label {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            justify-content: flex-end;
-            min-height: 40px;
+            justify-content: center;
+            min-height: 56px;
             width: 100%;
-            padding: 10px 16px;
-            border-radius: 999px;
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.03)),
-                linear-gradient(135deg, rgba(123, 46, 40, 0.52), rgba(91, 33, 29, 0.22));
-            border: 1px solid rgba(255, 237, 205, 0.14);
-            color: rgba(255, 246, 230, 0.82);
-            font-size: 0.78rem;
-            letter-spacing: 0.14em;
+            padding: 18px 28px;
+            border-radius: 14px;
+            background: rgba(255, 244, 221, 0.12);
+            border: 2px solid rgba(228, 191, 109, 0.5);
+            color: #fff5d7;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            white-space: nowrap;
-            opacity: 0.8;
-            transform: translateX(0) scale(1);
-            transition: opacity 260ms cubic-bezier(.2, .8, .2, 1), transform 260ms cubic-bezier(.2, .8, .2, 1), color 260ms cubic-bezier(.2, .8, .2, 1), background 260ms cubic-bezier(.2, .8, .2, 1), border-color 260ms cubic-bezier(.2, .8, .2, 1), box-shadow 260ms cubic-bezier(.2, .8, .2, 1);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.08),
-                0 10px 22px rgba(61, 18, 17, 0.12);
-            overflow: visible;
-            font-weight: 600;
+            white-space: normal;
+            text-align: center;
+            word-wrap: break-word;
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .section-tree-nav-link:hover .section-tree-nav-label,
         .section-tree-nav-link:focus-visible .section-tree-nav-label,
         .section-tree-nav-item.is-active .section-tree-nav-label {
-            opacity: 1;
-            transform: translateX(-6px) scale(1);
-        }
-
-        .section-tree-nav-link:hover .section-tree-nav-dot::before,
-        .section-tree-nav-link:focus-visible .section-tree-nav-dot::before,
-        .section-tree-nav-item.is-active .section-tree-nav-dot::before {
-            transform: scale(1.18);
-            background: linear-gradient(135deg, #fff5d7, #f4cf85);
-            border-color: rgba(255, 241, 219, 0.92);
-            box-shadow: 0 0 0 7px rgba(255, 241, 219, 0.09), 0 0 22px rgba(244, 207, 133, 0.24);
+            background: linear-gradient(135deg, rgba(228, 191, 109, 0.95), rgba(228, 191, 109, 0.88));
+            border-color: #fff5d7;
+            color: #8f463d;
+            transform: translateX(-4px);
+            box-shadow: 0 8px 24px rgba(61, 18, 17, 0.35);
         }
 
         .section-tree-nav-item.is-active .section-tree-nav-label {
@@ -2677,6 +2777,13 @@ $sectionNavItems = [
     <span class="smart-top-button-label">Top</span>
 </button>
 
+<button class="section-tree-nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+</button>
+
 <aside class="section-tree-nav" aria-label="Section navigation">
     <ul class="section-tree-nav-list">
         <?php foreach ($sectionNavItems as $item): ?>
@@ -2808,6 +2915,8 @@ $sectionNavItems = [
         let scrollTimer = 0;
         let ticking = false;
         const scrollingClass = "is-scrolling";
+        const isMobile = window.innerWidth <= 768;
+        const scrollDelay = isMobile ? 80 : 140;
 
         function clearScrollingState() {
             document.body.classList.remove(scrollingClass);
@@ -2823,7 +2932,7 @@ $sectionNavItems = [
                 window.clearTimeout(scrollTimer);
             }
 
-            scrollTimer = window.setTimeout(clearScrollingState, 140);
+            scrollTimer = window.setTimeout(clearScrollingState, scrollDelay);
             ticking = false;
         }
 
@@ -2838,7 +2947,49 @@ $sectionNavItems = [
 
         window.addEventListener("scroll", scheduleScrollingState, { passive: true });
         window.addEventListener("wheel", scheduleScrollingState, { passive: true });
-        window.addEventListener("touchmove", scheduleScrollingState, { passive: true });
+        
+        if (!isMobile) {
+            window.addEventListener("touchmove", scheduleScrollingState, { passive: true });
+        }
+    })();
+
+    (() => {
+        const sectionTreeNav = document.querySelector(".section-tree-nav");
+        const sectionTreeNavToggle = document.querySelector(".section-tree-nav-toggle");
+
+        if (sectionTreeNav && sectionTreeNavToggle) {
+            const toggleNav = (event) => {
+                if (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                const isExpanded = sectionTreeNav.classList.toggle("is-expanded");
+                sectionTreeNavToggle.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+            };
+
+            sectionTreeNavToggle.addEventListener("click", toggleNav, { passive: false });
+            sectionTreeNavToggle.addEventListener("touchend", toggleNav, { passive: false });
+
+            const sectionNavLinks = sectionTreeNav.querySelectorAll(".section-tree-nav-link");
+            sectionNavLinks.forEach((link) => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    sectionTreeNav.classList.remove("is-expanded");
+                    sectionTreeNavToggle.setAttribute("aria-expanded", "false");
+                });
+            });
+
+            const closeNavOnOutsideClick = (event) => {
+                if (!sectionTreeNav.contains(event.target) && !sectionTreeNavToggle.contains(event.target) && sectionTreeNav.classList.contains("is-expanded")) {
+                    sectionTreeNav.classList.remove("is-expanded");
+                    sectionTreeNavToggle.setAttribute("aria-expanded", "false");
+                }
+            };
+
+            document.addEventListener("click", closeNavOnOutsideClick);
+            document.addEventListener("touchend", closeNavOnOutsideClick);
+        }
     })();
 
     (() => {
@@ -3129,11 +3280,84 @@ $sectionNavItems = [
         window.addEventListener("resize", applyUpdate, { passive: true });
         applyUpdate();
 
+        let autoScrollTimer = 0;
+        let autoScrollPaused = false;
+        const IMAGE_AUTO_SCROLL_DURATION = 5000;
+
+        const startAutoScroll = () => {
+            if (autoScrollTimer) {
+                window.clearTimeout(autoScrollTimer);
+            }
+
+            if (autoScrollPaused) {
+                return;
+            }
+
+            const currentIndex = getIndex();
+            const currentVideo = videos[currentIndex];
+            const currentVideoConfig = videoWindows[currentIndex];
+
+            let duration = IMAGE_AUTO_SCROLL_DURATION;
+
+            if (currentVideo && currentVideoConfig) {
+                const bounds = getVideoClipBounds(currentVideo, currentVideoConfig);
+                if (bounds && bounds.end !== null && bounds.start !== null) {
+                    duration = (bounds.end - bounds.start) * 1000;
+                }
+            }
+
+            autoScrollTimer = window.setTimeout(() => {
+                const nextIndex = currentIndex + 1;
+                if (nextIndex < slides.length) {
+                    goToSlide(nextIndex);
+                } else {
+                    goToSlide(0);
+                }
+                startAutoScroll();
+            }, duration);
+        };
+
+        const pauseAutoScroll = () => {
+            autoScrollPaused = true;
+            if (autoScrollTimer) {
+                window.clearTimeout(autoScrollTimer);
+                autoScrollTimer = 0;
+            }
+        };
+
+        const resumeAutoScroll = () => {
+            autoScrollPaused = false;
+            startAutoScroll();
+        };
+
+        heroCarousel.addEventListener("mouseenter", pauseAutoScroll);
+        heroCarousel.addEventListener("mouseleave", resumeAutoScroll);
+        heroCarousel.addEventListener("touchstart", pauseAutoScroll, { passive: true });
+        heroCarousel.addEventListener("touchend", resumeAutoScroll);
+
+        prev.addEventListener("click", () => {
+            pauseAutoScroll();
+            window.setTimeout(resumeAutoScroll, 2000);
+        });
+
+        next.addEventListener("click", () => {
+            pauseAutoScroll();
+            window.setTimeout(resumeAutoScroll, 2000);
+        });
+
+        dots.forEach((dot) => {
+            dot.addEventListener("click", () => {
+                pauseAutoScroll();
+                window.setTimeout(resumeAutoScroll, 2000);
+            });
+        });
+
         window.requestAnimationFrame(() => {
             heroShell.classList.add("is-nav-ready");
             window.requestAnimationFrame(() => {
                 heroCarousel.classList.add("is-ready");
                 applyUpdate();
+                startAutoScroll();
             });
         });
     })();
