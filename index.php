@@ -306,8 +306,122 @@ $sectionNavItems = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLPP Srilanka</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="theme-color" content="#b85a4d">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Sri Lanka People's Front | ශ්‍රී ලංකා පොදුජන පෙරමුණ | இலங்கை பொதுஜன முன்னணி - SLPP Podujana Peramuna</title>
+    <meta name="title" content="Sri Lanka People's Front | ශ්‍රී ලංකා පොදුජන පෙරමුණ | இலங்கை பொதுஜன முன்னணி - SLPP Podujana Peramuna">
+    <meta name="description" content="Official website of Sri Lanka People's Front (SLPP / Podujana Peramuna) - ශ්‍රී ලංකා පොදුජන පෙරමුණ - இலங்கை பொதுஜன முன்னணி. Leadership, vision, and initiatives for a stronger Sri Lanka. Contact: +94 112 888 484 | Headquarters: 1316 Nelum Mawatha, Jayanthipura, Battaramulla.">
+    <meta name="keywords" content="Sri Lanka People's Front, SLPP, Podujana Peramuna, ශ්‍රී ලංකා පොදුජන පෙරමුණ, இலங்கை பொதுஜன முன்னணி, Sri Lanka politics, political party, leadership, vision, development, SLPP Sri Lanka, Podujana Peramuna party">
+    <meta name="author" content="Sri Lanka People's Front">
+    <meta name="language" content="en, si, ta">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://slpp.lk/">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/slpp.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/slpp.ico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://slpp.lk/">
+    <meta property="og:title" content="Sri Lanka People's Front | ශ්‍රී ලංකා පොදුජන පෙරමුණ | இலங்கை பொதுஜன முன்னணி">
+    <meta property="og:description" content="Official website of Sri Lanka People's Front (SLPP / Podujana Peramuna) - Leadership, vision, and initiatives for a stronger Sri Lanka. Contact: +94 112 888 484 | Headquarters: 1316 Nelum Mawatha, Jayanthipura, Battaramulla.">
+    <meta property="og:image" content="https://slpp.lk/images/testlogo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Sri Lanka People's Front Logo">
+    <meta property="og:locale" content="en_LK">
+    <meta property="og:locale:alternate" content="si_LK">
+    <meta property="og:locale:alternate" content="ta_LK">
+    <meta property="og:site_name" content="Sri Lanka People's Front">
+    
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://slpp.lk/">
+    <meta name="twitter:title" content="Sri Lanka People's Front | ශ්‍රී ලංකා පොදුජන පෙරමුණ | இலங்கை பொதுஜன முன்னணி">
+    <meta name="twitter:description" content="Official website of Sri Lanka People's Front (SLPP / Podujana Peramuna) - Leadership, vision, and initiatives for a stronger Sri Lanka.">
+    <meta name="twitter:image" content="https://slpp.lk/images/testlogo.png">
+    <meta name="twitter:image:alt" content="Sri Lanka People's Front Logo">
+    
+    <!-- LinkedIn -->
+    <meta property="linkedin:company" content="https://slpp.lk/">
+    
+    <!-- WhatsApp -->
+    <meta property="og:whatsapp" content="https://slpp.lk/">
+    
+    <!-- Additional SEO -->
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Structured Data (JSON-LD) for Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "PoliticalParty",
+        "name": "Sri Lanka People's Front",
+        "alternateName": [
+            "SLPP",
+            "Podujana Peramuna",
+            "ශ්‍රී ලංකා පොදුජන පෙරමුණ",
+            "இலங்கை பொதுஜன முன்னணி"
+        ],
+        "url": "https://slpp.lk/",
+        "logo": "https://slpp.lk/images/testlogo.png",
+        "sameAs": [
+            "https://www.youtube.com/@Slpp_press",
+            "https://www.instagram.com/podujanaparty",
+            "https://x.com/podujanaparty",
+            "https://web.facebook.com/PodujanaParty",
+            "https://en.wikipedia.org/wiki/Sri_Lanka_Podujana_Peramuna"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+94 112 888 484",
+            "contactType": "customer service"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1316 Nelum Mawatha, Jayanthipura",
+            "addressLocality": "Battaramulla",
+            "addressCountry": "LK"
+        },
+        "foundingDate": "2016",
+        "description": "Official website of Sri Lanka People's Front (SLPP / Podujana Peramuna) - A political organization dedicated to building a stronger Sri Lanka through visionary leadership and development initiatives."
+    }
+    </script>
+    
+    <!-- Additional Structured Data for Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Sri Lanka People's Front",
+        "url": "https://slpp.lk/",
+        "logo": "https://slpp.lk/images/testlogo.png",
+        "sameAs": [
+            "https://www.youtube.com/@Slpp_press",
+            "https://www.instagram.com/podujanaparty",
+            "https://x.com/podujanaparty",
+            "https://web.facebook.com/PodujanaParty",
+            "https://en.wikipedia.org/wiki/Sri_Lanka_Podujana_Peramuna"
+        ],
+        "telephone": "+94 112 888 484",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1316 Nelum Mawatha, Jayanthipura",
+            "addressLocality": "Battaramulla",
+            "addressCountry": "LK"
+        }
+    }
+    </script>
+    
     <style>
         :root {
             --hero-red: #b85a4d;
@@ -471,18 +585,23 @@ $sectionNavItems = [
 
         .hero-brand-logo {
             display: block;
-            width: 168px;
-            max-width: min(28vw, 168px);
+            width: 190px;
+            max-width: min(28vw, 190px);
             height: auto;
             flex-shrink: 0;
             object-fit: contain;
             position: relative;
             transform-origin: 50% 50%;
-            filter: drop-shadow(0 10px 22px rgba(61, 18, 17, 0.18));
+            filter:
+                drop-shadow(0 8px 20px rgba(61, 18, 17, 0.18))
+                drop-shadow(0 2px 6px rgba(244, 210, 122, 0.08));
             transform: rotateX(0deg) rotateY(0deg) scale(1);
             opacity: 1;
-            will-change: transform, opacity;
-            transition: opacity 220ms cubic-bezier(.2, .8, .2, 1);
+            image-rendering: auto;
+            image-rendering: high-quality;
+            -webkit-font-smoothing: antialiased;
+            will-change: transform, opacity, filter;
+            transition: opacity 220ms cubic-bezier(.2, .8, .2, 1), filter 220ms cubic-bezier(.2, .8, .2, 1), transform 220ms cubic-bezier(.2, .8, .2, 1);
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
         }
@@ -582,10 +701,10 @@ $sectionNavItems = [
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 18px;
+            gap: 36px;
             flex: 1 1 auto;
             min-width: 0;
-            margin-left: clamp(18px, 3vw, 42px);
+            margin-left: 0;
         }
 
         .hero-nav.is-menu-open .hero-menu-toggle {
@@ -673,13 +792,312 @@ $sectionNavItems = [
         .hero-action:hover,
         .hero-action:focus-visible {
             transform: translate3d(0, -2px, 0) scale(1.02);
-            border-color: rgba(255, 240, 214, 0.3);
-            background: rgba(255,255,255,0.12);
+            border-color: rgba(255, 240, 214, 0.28);
+            background: rgba(255,255,255,0.13);
         }
 
         .hero-action:hover,
         .hero-action:focus-visible {
             box-shadow: 0 22px 38px rgba(61, 18, 17, 0.18);
+        }
+
+        .hero-social {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 0 8px;
+        }
+
+        .hero-social .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            color: var(--hero-ink);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255, 240, 214, 0.12);
+            text-decoration: none;
+            transition: all 220ms cubic-bezier(.2, .8, .2, 1);
+            position: relative;
+        }
+
+        .hero-social .social-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-social .social-icon + .social-icon::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            width: 1px;
+            height: 20px;
+            transform: translateY(-50%);
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(255, 240, 214, 0.25) 30%,
+                rgba(255, 240, 214, 0.25) 70%,
+                transparent 100%);
+        }
+
+        .hero-social .social-icon:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255, 240, 214, 0.28);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(61, 18, 17, 0.12);
+        }
+
+        .hero-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--hero-ink);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255, 240, 214, 0.12);
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 220ms cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .hero-phone svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-phone span {
+            font-size: 0.88rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-phone:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255, 240, 214, 0.28);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(61, 18, 17, 0.12);
+        }
+
+        @media (min-width: 861px) {
+            .hero-nav {
+                gap: 24px;
+                padding: 16px 24px;
+                border-radius: 28px;
+                background:
+                    radial-gradient(circle at 14% 18%, rgba(255, 238, 207, 0.1), transparent 18%),
+                    linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
+                    rgba(255,255,255,0.06);
+                border-color: rgba(255, 237, 208, 0.1);
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.16),
+                    0 22px 44px rgba(79, 23, 21, 0.14);
+            }
+
+            .hero-nav::before {
+                content: "";
+                display: block;
+                position: absolute;
+                inset: 8px;
+                border-radius: 20px;
+                border: 1px solid rgba(255,255,255,0.035);
+                pointer-events: none;
+            }
+
+            .hero-brand {
+                gap: 0;
+                padding: 4px 0;
+                border-radius: 0;
+                background: transparent;
+                border: 0;
+                box-shadow: none;
+            }
+
+            .hero-brand-logo {
+                width: 210px;
+                max-width: min(18vw, 210px);
+                filter:
+                    drop-shadow(0 10px 24px rgba(61, 18, 17, 0.20))
+                    drop-shadow(0 3px 8px rgba(244, 210, 122, 0.10));
+                image-rendering: auto;
+                image-rendering: high-quality;
+            }
+
+            .hero-brand:hover .hero-brand-logo {
+                transform: rotateX(0deg) rotateY(0deg) scale(1.04);
+                filter:
+                    drop-shadow(0 14px 32px rgba(61, 18, 17, 0.24))
+                    drop-shadow(0 4px 12px rgba(244, 210, 122, 0.14));
+            }
+
+            .hero-nav-panel {
+                flex: 0 1 auto;
+                margin-left: auto;
+                gap: 0;
+            }
+
+            .hero-links {
+                gap: 0;
+                padding: 7px 12px;
+                margin: 0;
+                border-radius: 999px;
+                background:
+                    linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03)),
+                    rgba(112, 41, 37, 0.12);
+                border: 1px solid rgba(255, 240, 214, 0.08);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+            }
+
+            .hero-links a {
+                position: relative;
+                min-height: 48px;
+                padding: 14px 24px;
+                border-radius: 18px;
+                background: transparent;
+                border: 1px solid transparent;
+                font-size: 0.95rem;
+                font-weight: 600;
+                letter-spacing: 0.015em;
+                box-shadow: none;
+                overflow: hidden;
+            }
+
+            .hero-links a + a::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 1px;
+                height: 26px;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(180deg,
+                    transparent 0%,
+                    rgba(255, 240, 214, 0.18) 15%,
+                    rgba(255, 240, 214, 0.52) 50%,
+                    rgba(255, 240, 214, 0.18) 85%,
+                    transparent 100%);
+                opacity: 1;
+                transition: opacity 220ms cubic-bezier(.2, .8, .2, 1);
+            }
+
+            .hero-links a::after {
+                content: "";
+                position: absolute;
+                left: 16px;
+                right: 16px;
+                bottom: 8px;
+                height: 1px;
+                background: linear-gradient(90deg, rgba(244, 214, 143, 0), rgba(255, 244, 220, 0.9), rgba(244, 214, 143, 0));
+                opacity: 0;
+                transform: scaleX(0.68);
+                transform-origin: center;
+                transition: opacity 260ms cubic-bezier(.2, .8, .2, 1), transform 260ms cubic-bezier(.2, .8, .2, 1);
+            }
+
+            .hero-links a:hover,
+            .hero-links a:focus-visible,
+            .hero-links a.is-active {
+                transform: translate3d(0, -2px, 0) scale(1.02);
+                border-color: transparent;
+                background: rgba(255,255,255,0.08);
+                box-shadow: none;
+            }
+
+            .hero-links a:hover + a::before,
+            .hero-links a:focus-visible + a::before,
+            .hero-links a.is-active + a::before {
+                opacity: 0.28;
+            }
+
+            .hero-links a:hover::before,
+            .hero-links a:focus-visible::before,
+            .hero-links a.is-active::before {
+                opacity: 0.28;
+            }
+
+            .hero-links a:hover::after,
+            .hero-links a:focus-visible::after,
+            .hero-links a.is-active::after {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+
+            .hero-nav-panel {
+                gap: 42px;
+            }
+
+            .hero-social {
+                margin: 0 12px 0 20px;
+                gap: 0;
+                position: relative;
+            }
+
+            .hero-social::before {
+                content: "";
+                position: absolute;
+                left: -16px;
+                top: 50%;
+                width: 1px;
+                height: 28px;
+                transform: translateY(-50%);
+                background: linear-gradient(180deg,
+                    transparent 0%,
+                    rgba(255, 240, 214, 0.32) 25%,
+                    rgba(255, 240, 214, 0.32) 75%,
+                    transparent 100%);
+            }
+
+            .hero-social .social-icon {
+                width: 38px;
+                height: 38px;
+                background: transparent;
+                border: 1px solid transparent;
+                margin: 0 4px;
+            }
+
+            .hero-social .social-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .hero-social .social-icon + .social-icon::before {
+                left: -8px;
+                height: 24px;
+                background: linear-gradient(180deg,
+                    transparent 0%,
+                    rgba(255, 240, 214, 0.35) 30%,
+                    rgba(255, 240, 214, 0.35) 70%,
+                    transparent 100%);
+            }
+
+            .hero-social .social-icon:hover {
+                background: rgba(255,255,255,0.08);
+                border-color: rgba(255, 240, 214, 0.2);
+            }
+
+            .hero-phone {
+                background: transparent;
+                border: 1px solid transparent;
+                padding: 8px 16px;
+            }
+
+            .hero-phone svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .hero-phone span {
+                font-size: 0.92rem;
+            }
+
+            .hero-phone:hover {
+                background: rgba(255,255,255,0.08);
+                border-color: rgba(255, 240, 214, 0.2);
+            }
         }
 
         .hero-carousel {
@@ -1230,7 +1648,8 @@ $sectionNavItems = [
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent 28%),
+                radial-gradient(circle at top left, rgba(228, 191, 109, 0.08), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(244, 210, 122, 0.06), transparent 28%),
                 linear-gradient(110deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 48%);
             pointer-events: none;
         }
@@ -1239,42 +1658,56 @@ $sectionNavItems = [
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
-            gap: 20px;
+            grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+            gap: 28px;
             align-items: start;
         }
 
         .footer-brand,
         .footer-card {
             min-width: 0;
-            padding: 22px 22px 20px;
-            border-radius: 24px;
+            padding: 26px 26px 24px;
+            border-radius: 28px;
             background:
-                linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
-                rgba(76, 25, 24, 0.16);
-            border: 1px solid rgba(255, 239, 214, 0.08);
+                linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+                rgba(76, 25, 24, 0.12);
+            border: 1px solid rgba(255, 239, 214, 0.06);
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.05),
-                0 10px 24px rgba(28, 8, 8, 0.08);
+                inset 0 1px 0 rgba(255,255,255,0.08),
+                0 12px 28px rgba(28, 8, 8, 0.10);
+            transition:
+                transform 220ms cubic-bezier(.2, .8, .2, 1),
+                border-color 220ms cubic-bezier(.2, .8, .2, 1),
+                box-shadow 220ms cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .footer-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 239, 214, 0.10);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.10),
+                0 18px 36px rgba(28, 8, 8, 0.14);
         }
 
         .footer-brand {
             display: grid;
-            gap: 14px;
+            gap: 18px;
         }
 
         .footer-logo-row {
             display: inline-flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
         }
 
         .footer-logo {
-            width: 62px;
-            height: 62px;
+            width: 72px;
+            height: 72px;
             object-fit: contain;
             flex-shrink: 0;
-            filter: drop-shadow(0 8px 18px rgba(29, 8, 8, 0.18));
+            filter:
+                drop-shadow(0 10px 24px rgba(29, 8, 8, 0.22))
+                drop-shadow(0 4px 10px rgba(228, 191, 109, 0.12));
         }
 
         .footer-brand h2,
@@ -1288,6 +1721,20 @@ $sectionNavItems = [
             line-height: 1.08;
             letter-spacing: -0.03em;
             font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .party-name-sub {
+            margin: 4px 0 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: rgba(228, 191, 109, 0.88);
+        }
+
+        .party-name-tamil {
+            margin: 2px 0 0;
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: rgba(255, 243, 223, 0.7);
         }
 
         .footer-brand p,
@@ -1338,39 +1785,40 @@ $sectionNavItems = [
         .footer-contact-link:hover,
         .footer-contact-link:focus-visible {
             color: var(--hero-ink);
-            transform: translateX(2px);
+            transform: translateX(4px);
         }
 
         .footer-contact-list li {
             display: grid;
-            gap: 4px;
+            gap: 6px;
         }
 
         .footer-contact-label {
-            font-size: 0.76rem;
-            letter-spacing: 0.12em;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255, 239, 214, 0.58);
+            color: rgba(228, 191, 109, 0.68);
+            font-weight: 600;
         }
 
         .footer-social-list {
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
+            gap: 14px;
         }
 
         .footer-social-link {
             display: grid;
-            grid-template-columns: 20px minmax(0, 1fr);
+            grid-template-columns: 22px minmax(0, 1fr);
             align-items: center;
-            column-gap: 12px;
-            min-height: 48px;
-            padding: 0 14px;
+            column-gap: 14px;
+            min-height: 52px;
+            padding: 0 16px;
             text-decoration: none;
-            border-radius: 16px;
+            border-radius: 18px;
             background:
-                linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
-                rgba(255,255,255,0.02);
-            border: 1px solid rgba(255, 238, 206, 0.1);
+                linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)),
+                rgba(255,255,255,0.03);
+            border: 1px solid rgba(255, 238, 206, 0.14);
             color: var(--hero-ink);
             transition:
                 transform 220ms cubic-bezier(.2, .8, .2, 1),
@@ -1381,7 +1829,7 @@ $sectionNavItems = [
 
         .footer-social-link:hover,
         .footer-social-link:focus-visible {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             border-color: rgba(255, 238, 206, 0.18);
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04)),
@@ -1390,8 +1838,8 @@ $sectionNavItems = [
         }
 
         .footer-social-icon {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             flex-shrink: 0;
             justify-self: center;
         }
@@ -1406,28 +1854,123 @@ $sectionNavItems = [
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
-            margin-top: 20px;
-            padding-top: 18px;
-            border-top: 1px solid rgba(255, 236, 205, 0.08);
-            font-size: 0.88rem;
+            gap: 16px;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 236, 205, 0.12);
+            font-size: 0.9rem;
         }
 
         .footer-bottom-links {
             display: inline-flex;
             flex-wrap: wrap;
             justify-content: flex-end;
-            gap: 14px;
+            gap: 16px;
         }
 
         .footer-bottom-links a {
-            color: rgba(255, 243, 223, 0.72);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 40px;
+            padding: 8px 18px;
+            color: rgba(255, 243, 223, 0.92);
             text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border-radius: 999px;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)),
+                rgba(255,255,255,0.04);
+            border: 1px solid rgba(255, 238, 206, 0.18);
+            transition: all 220ms cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .footer-bottom-links a svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
         }
 
         .footer-bottom-links a:hover,
         .footer-bottom-links a:focus-visible {
             color: var(--hero-ink);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06)),
+                rgba(255,255,255,0.06);
+            border-color: rgba(255, 238, 206, 0.28);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(33, 10, 9, 0.18);
+        }
+
+        .back-to-top-button {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 999px;
+            background:
+                linear-gradient(145deg, rgba(228, 191, 109, 0.92), rgba(184, 90, 77, 0.88)),
+                rgba(61, 18, 17, 0.85);
+            border: 1px solid rgba(255, 238, 206, 0.24);
+            box-shadow:
+                0 8px 24px rgba(29, 8, 8, 0.28),
+                0 4px 12px rgba(228, 191, 109, 0.20),
+                inset 0 1px 0 rgba(255, 255, 255, 0.20);
+            color: white;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.9);
+            transition:
+                opacity 320ms cubic-bezier(.2, .8, .2, 1),
+                visibility 320ms cubic-bezier(.2, .8, .2, 1),
+                transform 320ms cubic-bezier(.2, .8, .2, 1),
+                box-shadow 320ms cubic-bezier(.2, .8, .2, 1);
+            z-index: 1000;
+        }
+
+        .back-to-top-button.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .back-to-top-button:hover {
+            background:
+                linear-gradient(145deg, rgba(244, 210, 122, 0.96), rgba(200, 100, 85, 0.92)),
+                rgba(71, 20, 18, 0.90);
+            border-color: rgba(255, 238, 206, 0.32);
+            box-shadow:
+                0 12px 32px rgba(29, 8, 8, 0.36),
+                0 6px 18px rgba(228, 191, 109, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            transform: translateY(-4px) scale(1.08);
+        }
+
+        .back-to-top-button svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top-button {
+                bottom: 24px;
+                right: 24px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .back-to-top-button svg {
+                width: 24px;
+                height: 24px;
+            }
         }
 
         .page-section-chunk {
@@ -1536,10 +2079,7 @@ $sectionNavItems = [
 
         @media (max-width: 768px) {
             .section-tree-nav {
-                bottom: max(100px, env(safe-area-inset-bottom, 0px) + 100px);
-                top: auto;
-                right: max(20px, env(safe-area-inset-right, 0px) + 20px);
-                transform: none;
+                display: none;
             }
         }
 
@@ -1578,22 +2118,7 @@ $sectionNavItems = [
 
         @media (max-width: 768px) {
             .section-tree-nav-toggle {
-                width: 64px;
-                height: 64px;
-                bottom: max(20px, env(safe-area-inset-bottom, 0px) + 20px);
-                top: auto;
-                right: max(20px, env(safe-area-inset-right, 0px) + 20px);
-                transform: none;
-                z-index: 99999;
-                border-width: 4px;
-            }
-
-            .section-tree-nav-toggle:hover {
-                transform: scale(1.08);
-            }
-
-            .section-tree-nav-toggle:active {
-                transform: scale(0.95);
+                display: none;
             }
         }
 
@@ -2072,6 +2597,11 @@ $sectionNavItems = [
                 margin-left: 0;
             }
 
+            .hero-social,
+            .hero-phone {
+                display: none;
+            }
+
             .hero-carousel {
                 border-radius: 26px;
             }
@@ -2087,10 +2617,22 @@ $sectionNavItems = [
 
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-brand,
+            .footer-card {
+                padding: 20px 18px;
+            }
+
+            .footer-logo {
+                width: 56px;
+                height: 56px;
             }
 
             .footer-bottom {
                 flex-direction: column;
+                gap: 14px;
                 align-items: flex-start;
             }
 
@@ -2717,6 +3259,24 @@ $sectionNavItems = [
                         </a>
                     <?php endforeach; ?>
                 </div>
+                <div class="hero-social">
+                    <a href="https://www.youtube.com/@Slpp_press" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/podujanaparty" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <a href="https://x.com/podujanaparty" class="social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://web.facebook.com/PodujanaParty" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                </div>
+                <a href="tel:0112888484" class="hero-phone" aria-label="Call 0112 888 484">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.49-5.15-3.8-6.62-6.63l1.97-1.57c.3-.3.4-.74.24-1.16-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.18 3.18 3.65 3.18 4.19c0 9.27 7.55 16.82 16.82 16.82.54 0 .99-.45.99-.99v-3.65c0-.54-.45-.99-.99-.99z"/></svg>
+                    <span>0112 888 484</span>
+                </a>
             </div>
         </nav>
 
@@ -2772,10 +3332,7 @@ $sectionNavItems = [
     </div>
 </section>
 
-<button class="smart-top-button" type="button" id="smartTopButton" aria-label="Back to top">
-    <span class="smart-top-button-icon" aria-hidden="true">&#8593;</span>
-    <span class="smart-top-button-label">Top</span>
-</button>
+
 
 <button class="section-tree-nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2842,10 +3399,12 @@ $sectionNavItems = [
                 <div class="footer-logo-row">
                     <img class="footer-logo" src="images/testlogo.png" alt="Logo">
                     <div>
-                        <h2>Stronger Presence for a Stronger Nation</h2>
+                        <h2>ශ්‍රී ලංකා පොදුජන පෙරමුණ</h2>
+                        <p class="party-name-sub">Sri Lanka People's Front</p>
+                        <p class="party-name-tamil">இலங்கை பொதுஜன முன்னணி</p>
                     </div>
                 </div>
-                <p>A modern public-facing platform for leadership stories, district initiatives, and campaign communication that stays clear, trustworthy, and mobile-ready.</p>
+                <p>1316 Nelum Mawatha, Jayanthipura, Battaramulla</p>
             </section>
 
             <section class="footer-card" aria-label="Quick links">
@@ -2864,15 +3423,15 @@ $sectionNavItems = [
                 <ul class="footer-contact-list">
                     <li>
                         <span class="footer-contact-label">Phone</span>
-                        <a class="footer-contact-link" href="tel:+94000000000">+94 00 000 0000</a>
+                        <a class="footer-contact-link" href="tel:0112888484">0112 888 484</a>
                     </li>
                     <li>
                         <span class="footer-contact-label">Email</span>
                         <a class="footer-contact-link" href="mailto:info@slppsrilanka.lk">info@slppsrilanka.lk</a>
                     </li>
                     <li>
-                        <span class="footer-contact-label">Office</span>
-                        <p>Colombo, Sri Lanka</p>
+                        <span class="footer-contact-label">Headquarters</span>
+                        <p>1316 Nelum Mawatha, Jayanthipura, Battaramulla</p>
                     </li>
                 </ul>
             </section>
@@ -2880,36 +3439,42 @@ $sectionNavItems = [
             <section class="footer-card" aria-label="Social media links">
                 <h3>Follow Us</h3>
                 <div class="footer-social-list">
-                    <a class="footer-social-link" href="#" aria-label="Facebook">
-                        <svg class="footer-social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 21V12.8H16.3L16.72 9.6H13.5V7.55C13.5 6.63 13.76 6 15.08 6H16.84V3.14C16.53 3.1 15.47 3 14.24 3C11.67 3 9.92 4.57 9.92 7.46V9.6H7.2V12.8H9.92V21H13.5Z" fill="currentColor"/></svg>
-                        <span>Facebook</span>
-                    </a>
-                    <a class="footer-social-link" href="#" aria-label="Instagram">
-                        <svg class="footer-social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.2A3.8 3.8 0 1 0 12 15.8A3.8 3.8 0 0 0 12 8.2ZM12 14.44A2.44 2.44 0 1 1 12 9.56A2.44 2.44 0 0 1 12 14.44ZM16.84 8.04A.89.89 0 1 0 16.84 6.26A.89.89 0 0 0 16.84 8.04ZM21 8.06C20.91 6.22 20.49 4.58 19.14 3.24C17.8 1.89 16.16 1.47 14.32 1.38C12.42 1.27 11.58 1.27 9.68 1.38C7.84 1.47 6.2 1.89 4.86 3.24C3.51 4.58 3.09 6.22 3 8.06C2.89 9.96 2.89 10.8 3 12.7C3.09 14.54 3.51 16.18 4.86 17.52C6.2 18.87 7.84 19.29 9.68 19.38C11.58 19.49 12.42 19.49 14.32 19.38C16.16 19.29 17.8 18.87 19.14 17.52C20.49 16.18 20.91 14.54 21 12.7C21.11 10.8 21.11 9.96 21 8.06ZM19.38 15.76C18.98 16.76 18.21 17.53 17.21 17.93C15.76 18.51 12.32 18.38 12 18.38C11.68 18.38 8.24 18.51 6.79 17.93C5.79 17.53 5.02 16.76 4.62 15.76C4.04 14.31 4.17 10.87 4.17 10.55C4.17 10.23 4.04 6.79 4.62 5.34C5.02 4.34 5.79 3.57 6.79 3.17C8.24 2.59 11.68 2.72 12 2.72C12.32 2.72 15.76 2.59 17.21 3.17C18.21 3.57 18.98 4.34 19.38 5.34C19.96 6.79 19.83 10.23 19.83 10.55C19.83 10.87 19.96 14.31 19.38 15.76Z" fill="currentColor"/></svg>
-                        <span>Instagram</span>
-                    </a>
-                    <a class="footer-social-link" href="#" aria-label="YouTube">
-                        <svg class="footer-social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.45 7.34C20.24 6.54 19.61 5.91 18.81 5.7C17.35 5.31 12 5.31 12 5.31S6.65 5.31 5.19 5.7C4.39 5.91 3.76 6.54 3.55 7.34C3.16 8.8 3.16 11.85 3.16 11.85S3.16 14.9 3.55 16.36C3.76 17.16 4.39 17.79 5.19 18C6.65 18.39 12 18.39 12 18.39S17.35 18.39 18.81 18C19.61 17.79 20.24 17.16 20.45 16.36C20.84 14.9 20.84 11.85 20.84 11.85S20.84 8.8 20.45 7.34ZM10.29 14.15V9.55L14.27 11.85L10.29 14.15Z" fill="currentColor"/></svg>
+                    <a class="footer-social-link" href="https://www.youtube.com/@Slpp_press" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                        <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         <span>YouTube</span>
                     </a>
-                    <a class="footer-social-link" href="#" aria-label="WhatsApp">
-                        <svg class="footer-social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.48 0 .12 5.35.12 11.92C.12 14.03.67 16.08 1.73 17.89L0 24L6.27 22.35C8 23.3 9.95 23.79 12.03 23.79H12.04C18.61 23.79 23.96 18.44 23.96 11.87C23.97 8.69 22.73 5.7 20.52 3.48ZM12.04 21.78H12.03C10.24 21.78 8.49 21.3 6.96 20.39L6.6 20.18L2.88 21.16L3.87 17.54L3.63 17.17C2.65 15.61 2.14 13.81 2.14 11.92C2.14 6.46 6.58 2.01 12.05 2.01C14.7 2.01 17.19 3.04 19.06 4.91C20.92 6.78 21.95 9.27 21.95 11.91C21.95 17.37 17.5 21.78 12.04 21.78ZM17.47 14.38C17.17 14.23 15.7 13.51 15.42 13.41C15.14 13.31 14.94 13.26 14.74 13.56C14.54 13.86 13.97 14.53 13.8 14.73C13.63 14.93 13.46 14.95 13.16 14.8C12.86 14.65 11.9 14.34 10.76 13.33C9.88 12.55 9.29 11.59 9.12 11.29C8.95 10.99 9.1 10.82 9.25 10.67C9.39 10.53 9.55 10.3 9.7 10.13C9.85 9.95 9.9 9.83 10 9.63C10.1 9.43 10.05 9.25 9.97 9.1C9.9 8.95 9.3 7.48 9.05 6.88C8.8 6.3 8.56 6.37 8.38 6.36H7.83C7.63 6.36 7.31 6.43 7.03 6.73C6.75 7.03 5.95 7.77 5.95 9.28C5.95 10.79 7.06 12.25 7.21 12.45C7.36 12.65 9.32 15.67 12.31 16.96C13.02 17.27 13.58 17.46 14.01 17.6C14.72 17.83 15.36 17.8 15.87 17.72C16.44 17.63 17.61 17 17.86 16.31C18.11 15.61 18.11 15.03 18.04 14.91C17.96 14.78 17.77 14.71 17.47 14.56V14.38Z" fill="currentColor"/></svg>
-                        <span>WhatsApp</span>
+                    <a class="footer-social-link" href="https://www.instagram.com/podujanaparty" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a class="footer-social-link" href="https://x.com/podujanaparty" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                        <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <span>X</span>
+                    </a>
+                    <a class="footer-social-link" href="https://web.facebook.com/PodujanaParty" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        <span>Facebook</span>
                     </a>
                 </div>
             </section>
         </div>
 
         <div class="footer-bottom">
-            <span>&copy; <?php echo date('Y'); ?> SLPP Srilanka. All rights reserved.</span>
+            <span>&copy; <?php echo date('Y'); ?> Sri Lanka Podujana Peramuna. All rights reserved.</span>
             <div class="footer-bottom-links">
-                <a href="#top">Back to top</a>
-                <a href="#vision">Vision</a>
-                <a href="#districts">Projects</a>
+                <a href="https://en.wikipedia.org/wiki/Sri_Lanka_Podujana_Peramuna" target="_blank" rel="noopener noreferrer" aria-label="View on Wikipedia">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+                    <span>Wikipedia</span>
+                </a>
             </div>
         </div>
     </div>
 </footer>
+
+<a href="#top" class="back-to-top-button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</a>
+
 <script>
     (() => {
         let scrollTimer = 0;
@@ -2947,9 +3512,40 @@ $sectionNavItems = [
 
         window.addEventListener("scroll", scheduleScrollingState, { passive: true });
         window.addEventListener("wheel", scheduleScrollingState, { passive: true });
-        
+
         if (!isMobile) {
             window.addEventListener("touchmove", scheduleScrollingState, { passive: true });
+        }
+
+        const backToTopButton = document.querySelector(".back-to-top-button");
+        const siteFooter = document.querySelector(".site-footer");
+        if (backToTopButton) {
+            const toggleBackToTop = () => {
+                const scrollY = window.scrollY || window.pageYOffset;
+                const shouldShow = scrollY > 400;
+                let nearFooter = false;
+                if (siteFooter) {
+                    const rect = siteFooter.getBoundingClientRect();
+                    nearFooter = rect.top < window.innerHeight;
+                }
+                if (shouldShow && !nearFooter) {
+                    backToTopButton.classList.add("is-visible");
+                } else {
+                    backToTopButton.classList.remove("is-visible");
+                }
+            };
+
+            window.addEventListener("scroll", toggleBackToTop, { passive: true });
+            window.addEventListener("resize", toggleBackToTop, { passive: true });
+            toggleBackToTop();
+
+            backToTopButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
         }
     })();
 
@@ -2997,6 +3593,17 @@ $sectionNavItems = [
         const heroNav = document.querySelector(".hero-nav");
         const menuToggle = heroNav ? heroNav.querySelector(".hero-menu-toggle") : null;
         const navLinks = heroNav ? Array.from(heroNav.querySelectorAll(".hero-links a")) : [];
+        const navSections = navLinks
+            .map((link) => {
+                const href = link.getAttribute("href") || "";
+                if (!href.startsWith("#")) {
+                    return null;
+                }
+
+                const target = document.querySelector(href);
+                return target ? { link, target } : null;
+            })
+            .filter(Boolean);
         const smartTopButton = document.getElementById("smartTopButton");
         const heroCarousel = document.getElementById("heroCarousel");
         const track = document.getElementById("heroTrack");
@@ -3071,6 +3678,35 @@ $sectionNavItems = [
                 });
             });
         });
+
+        const syncHeroNavActiveLink = () => {
+            if (!navSections.length) {
+                return;
+            }
+
+            const threshold = window.scrollY + Math.min(window.innerHeight * 0.34, 260);
+            let activeItem = navSections[0];
+
+            navSections.forEach((item) => {
+                if (item.target.offsetTop <= threshold) {
+                    activeItem = item;
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.toggle("is-active", activeItem && activeItem.link === link);
+            });
+        };
+
+        navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.forEach((item) => item.classList.toggle("is-active", item === link));
+            });
+        });
+
+        window.addEventListener("scroll", syncHeroNavActiveLink, { passive: true });
+        window.addEventListener("resize", syncHeroNavActiveLink, { passive: true });
+        syncHeroNavActiveLink();
 
         if (smartTopButton) {
             const syncSmartTopButton = () => {

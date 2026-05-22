@@ -113,7 +113,7 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             width: 100%;
             margin: 0 auto;
             padding: 12px 14px 22px;
-            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            font-family: "Trebuchet MS", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
             color: var(--hero-ink);
             content-visibility: auto;
         }
@@ -134,6 +134,18 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             will-change: transform;
+        }
+
+        .leadership-shell::after {
+            content: "";
+            position: absolute;
+            inset: auto -12% -24% auto;
+            width: clamp(240px, 28vw, 420px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(241, 207, 122, 0.16), rgba(241, 207, 122, 0));
+            pointer-events: none;
+            filter: blur(8px);
         }
 
         @media (max-width: 768px) {
@@ -179,10 +191,10 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
 
         .leadership-head {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             gap: 14px;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
 
         .leadership-kicker {
@@ -219,17 +231,11 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             margin: 0;
         }
 
-        .leadership-head h2,
-        .leadership-head p,
         .leadership-topbar p {
             display: none;
         }
 
         .leadership-topbar {
-            position: absolute;
-            top: -60px;
-            right: 0;
-            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -293,6 +299,14 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             gap: 12px;
         }
 
+        .leadership-slider-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            margin-bottom: 0;
+        }
+
         .leadership-track-wrap {
             position: relative;
         }
@@ -323,7 +337,7 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
         .leader-card {
             position: relative;
             min-height: clamp(505px, 56vh, 610px);
-            height: 100%;
+            height: auto;
             scroll-snap-align: start;
             border-radius: 24px;
             border: 1px solid rgba(255, 231, 183, 0.075);
@@ -337,6 +351,19 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             box-shadow: 0 12px 28px rgba(71, 20, 18, 0.11);
             overflow: hidden;
             transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease), background var(--ease);
+            align-self: start;
+        }
+
+        .leader-card::after {
+            content: "";
+            position: absolute;
+            inset: auto -14% -18% auto;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, color-mix(in srgb, var(--leader-accent, #e2c06c) 40%, transparent), transparent 68%);
+            opacity: 0.8;
+            pointer-events: none;
         }
 
         .leader-card:hover {
@@ -356,19 +383,17 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
 
         .leader-card-inner {
             display: grid;
-            min-height: 100%;
-            height: 100%;
-            gap: 13px;
+            gap: 14px;
             padding: 14px;
             align-content: start;
-            grid-template-rows: 1fr auto;
         }
 
         .leader-headline {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 14px;
             align-items: start;
+            height: 100%;
         }
 
         .leader-photo {
@@ -420,6 +445,7 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
 
         .leader-main {
             min-width: 0;
+            position: relative;
         }
 
         .leader-meta {
@@ -451,24 +477,21 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
         }
 
         .leader-main h3 {
-            font-size: clamp(1.12rem, 1.55vw, 1.42rem);
+            font-size: clamp(1.16rem, 1.55vw, 1.5rem);
             color: var(--hero-ink);
             letter-spacing: -0.035em;
-            line-height: 1.08;
+            line-height: 1.04;
         }
 
         .leader-main p {
             margin-top: 8px;
             color: var(--hero-muted);
-            line-height: 1.6;
+            line-height: 1.56;
             max-width: none;
-            font-size: 0.92rem;
+            font-size: 0.96rem;
         }
 
         .leader-foot {
-            position: absolute;
-            right: 16px;
-            bottom: 16px;
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -501,6 +524,196 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
                 linear-gradient(145deg, rgba(241, 207, 122, 0.24), rgba(184, 90, 77, 0.22)),
                 rgba(255,255,255,0.1);
             border-color: rgba(255, 231, 183, 0.18);
+        }
+
+        @media (min-width: 1100px) {
+            .leadership-shell {
+                padding: 22px;
+            }
+
+            .leadership-track {
+                display: grid;
+                grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+                grid-auto-flow: unset;
+                overflow-x: visible;
+                padding: 2px;
+                align-items: start;
+                gap: 18px;
+            }
+
+            .leader-card {
+                min-height: clamp(430px, 32vw, 520px);
+                height: auto;
+            }
+
+            .leader-card.priority-1 {
+                border-color: rgba(241, 207, 122, 0.22);
+                box-shadow:
+                    0 0 0 1px rgba(241, 207, 122, 0.06),
+                    0 20px 48px rgba(71, 20, 18, 0.18);
+            }
+
+            .leader-card-inner {
+                height: 100%;
+                padding: 18px;
+            }
+
+            .leader-headline {
+                position: relative;
+                display: block;
+                min-height: 100%;
+                border-radius: 18px;
+                overflow: hidden;
+                isolation: isolate;
+            }
+
+            .leader-photo {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                min-height: 0;
+                aspect-ratio: auto;
+                border-radius: 18px;
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.08),
+                    0 18px 30px rgba(71, 20, 18, 0.14);
+            }
+
+            .leader-photo img {
+                object-position: center 18%;
+                transform: scale(1.01);
+            }
+
+            .leader-photo::before {
+                background:
+                    linear-gradient(180deg, rgba(73, 27, 23, 0.04) 0%, rgba(73, 27, 23, 0.06) 38%, rgba(88, 34, 29, 0.2) 54%, rgba(101, 43, 37, 0.74) 80%, rgba(126, 59, 49, 0.92) 100%),
+                    radial-gradient(circle at top right, rgba(241, 207, 122, 0.16), transparent 24%);
+            }
+
+            .leader-photo::after {
+                border-radius: 18px;
+            }
+
+            .leader-main {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                min-height: clamp(430px, 32vw, 520px);
+                height: 100%;
+            }
+
+            .leader-meta {
+                margin-bottom: 10px;
+            }
+
+            .leader-main h3 {
+                font-size: clamp(1.42rem, 1.95vw, 1.82rem);
+                line-height: 1.02;
+                margin-bottom: 10px;
+            }
+
+            .leader-main p {
+                max-width: 34ch;
+                font-size: 0.98rem;
+                line-height: 1.68;
+            }
+
+            .leader-foot {
+                margin-top: 18px;
+            }
+
+            .leader-card:not(.priority-1) .leader-main {
+                padding: 28px 24px 24px;
+                background:
+                    linear-gradient(180deg, rgba(241, 214, 183, 0) 0%, rgba(193, 129, 99, 0.08) 32%, rgba(150, 76, 63, 0.72) 82%, rgba(118, 53, 44, 0.9) 100%);
+            }
+
+            .leader-card:not(.priority-1) .leader-main h3 {
+                font-size: clamp(1.28rem, 1.55vw, 1.52rem);
+            }
+
+            .leader-card.priority-1 .leader-card-inner {
+                padding: 18px;
+            }
+
+            .leader-card.priority-1::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, rgba(241, 207, 122, 0.0), rgba(241, 207, 122, 0.9), rgba(184, 90, 77, 0.7), rgba(241, 207, 122, 0.0));
+                border-radius: 24px 24px 0 0;
+                z-index: 3;
+            }
+
+            .leader-card.priority-1 .leader-photo img {
+                object-position: 28% top;
+            }
+
+            .leader-card.priority-1 .leader-photo::before {
+                background:
+                    linear-gradient(90deg, rgba(83, 32, 27, 0.06) 0%, rgba(83, 32, 27, 0.06) 42%, rgba(83, 32, 27, 0.36) 58%, rgba(116, 53, 45, 0.78) 78%, rgba(149, 82, 69, 0.92) 100%),
+                    radial-gradient(circle at top right, rgba(241, 207, 122, 0.16), transparent 24%);
+            }
+
+            .leader-card.priority-1 .leader-role {
+                font-size: 0.74rem;
+                padding: 8px 14px;
+                background:
+                    linear-gradient(135deg, rgba(241, 207, 122, 0.48), rgba(184, 90, 77, 0.44)),
+                    rgba(255,255,255,0.10);
+                border-color: rgba(255, 231, 183, 0.22);
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.20),
+                    0 4px 12px rgba(241, 207, 122, 0.12);
+            }
+
+            .leader-card.priority-1 .leader-main {
+                width: min(41%, 410px);
+                margin-left: auto;
+                padding: 30px 26px 26px 34px;
+                background:
+                    linear-gradient(90deg, rgba(244, 214, 184, 0) 0%, rgba(214, 150, 120, 0.14) 24%, rgba(197, 132, 102, 0.3) 100%);
+                border-left: 1px solid rgba(255, 231, 183, 0.08);
+            }
+
+            .leader-card.priority-1 .leader-main h3 {
+                font-size: clamp(1.72rem, 2.35vw, 2.18rem);
+                letter-spacing: -0.04em;
+            }
+
+            .leader-card.priority-1 .leader-main p {
+                max-width: 29ch;
+                font-size: 1.03rem;
+                line-height: 1.72;
+            }
+
+            .leader-card.priority-1 .leader-foot {
+                margin-top: 20px;
+            }
+
+            .leadership-controls {
+                display: none;
+            }
+
+            .leadership-progress {
+                display: none;
+            }
+
+            .leadership-dots {
+                margin-top: 2px;
+                justify-content: flex-start;
+                padding-left: 4px;
+            }
+
+            .leadership-slider {
+                gap: 10px;
+            }
         }
 
         .leadership-progress {
@@ -547,10 +760,12 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
         }
 
         @media (max-width: 960px) {
+            .leadership-head {
+                margin-bottom: 6px;
+            }
+
             .leadership-topbar {
-                position: static;
-                width: 100%;
-                margin-bottom: 10px;
+                width: auto;
                 justify-content: flex-end;
             }
 
@@ -583,18 +798,28 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
                 border-radius: 24px;
             }
 
+            .leadership-head h2 {
+                font-size: clamp(1.45rem, 7vw, 2.1rem);
+            }
+
+            .leadership-head p {
+                font-size: 0.92rem;
+                line-height: 1.65;
+            }
+
             .leadership-shell::before {
                 inset: 9px;
                 border-radius: 17px;
             }
 
             .leadership-head {
-                margin-bottom: 12px;
+                margin-bottom: 6px;
             }
 
-            .leadership-topbar {
-                width: 100%;
-                justify-content: space-between;
+            .leadership-slider-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
             }
 
             .leadership-controls {
@@ -615,27 +840,74 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
 
             .leader-card {
                 border-radius: 24px;
-                min-height: 455px;
+                min-height: 0;
             }
 
             .leader-card-inner {
-                gap: 14px;
-                padding: 16px;
+                gap: 0;
+                padding: 12px;
             }
 
             .leader-headline {
-                gap: 14px;
+                position: relative;
+                display: block;
+                min-height: 430px;
+                border-radius: 18px;
+                overflow: hidden;
+                isolation: isolate;
             }
 
             .leader-photo {
+                position: absolute;
+                inset: 0;
                 width: 100%;
-                aspect-ratio: 16 / 10;
-                height: auto;
+                height: 100%;
+                aspect-ratio: auto;
                 border-radius: 18px;
             }
 
+            .leader-photo img {
+                object-position: center 18%;
+                transform: scale(1.02);
+            }
+
+            .leader-photo::before {
+                background:
+                    linear-gradient(180deg, rgba(73, 27, 23, 0.02) 0%, rgba(73, 27, 23, 0.06) 32%, rgba(84, 32, 27, 0.18) 48%, rgba(104, 45, 38, 0.78) 82%, rgba(122, 56, 47, 0.94) 100%),
+                    radial-gradient(circle at top right, rgba(241, 207, 122, 0.16), transparent 24%);
+            }
+
+            .leader-photo::after {
+                border-radius: 18px;
+            }
+
+            .leader-main {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                min-height: 430px;
+                padding: 20px 18px 16px;
+            }
+
+            .leader-meta {
+                margin-bottom: 10px;
+            }
+
             .leader-main h3 {
-                font-size: 1.12rem;
+                font-size: clamp(1.34rem, 6vw, 1.72rem);
+                line-height: 1.04;
+                margin-bottom: 10px;
+            }
+
+            .leader-main p {
+                font-size: 0.94rem;
+                line-height: 1.64;
+            }
+
+            .leader-foot {
+                margin-top: 16px;
             }
 
             .leader-role,
@@ -821,16 +1093,18 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
             </div>
 
             <div class="leadership-slider">
-                <div class="leadership-topbar" data-float style="--float-delay: 80ms;">
-                    <div class="leadership-controls">
-                        <button class="leadership-control" type="button" data-leadership-prev aria-label="Previous leadership card">
-                            <span aria-hidden="true">&#8592;</span>
-                            <span class="leadership-control-label">Previous</span>
-                        </button>
-                        <button class="leadership-control" type="button" data-leadership-next aria-label="Next leadership card">
-                            <span class="leadership-control-label">Next</span>
-                            <span aria-hidden="true">&#8594;</span>
-                        </button>
+                <div class="leadership-slider-header" data-float style="--float-delay: 80ms;">
+                    <div class="leadership-topbar">
+                        <div class="leadership-controls">
+                            <button class="leadership-control" type="button" data-leadership-prev aria-label="Previous leadership card">
+                                <span aria-hidden="true">&#8592;</span>
+                                <span class="leadership-control-label">Previous</span>
+                            </button>
+                            <button class="leadership-control" type="button" data-leadership-next aria-label="Next leadership card">
+                                <span class="leadership-control-label">Next</span>
+                                <span aria-hidden="true">&#8594;</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -849,10 +1123,10 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
                                             </div>
                                             <h3><?php echo htmlspecialchars($member['name'], ENT_QUOTES, 'UTF-8'); ?></h3>
                                             <p><?php echo htmlspecialchars($member['description'], ENT_QUOTES, 'UTF-8'); ?></p>
+                                            <div class="leader-foot">
+                                                <span class="leader-more" aria-label="View leader details">&#8594;</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="leader-foot">
-                                        <span class="leader-more" aria-label="View leader details">&#8594;</span>
                                     </div>
                                 </div>
                             </article>

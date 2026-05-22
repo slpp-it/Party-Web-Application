@@ -496,6 +496,134 @@ foreach ($districts as $district) {
             animation: mapHelperReveal 700ms cubic-bezier(.2, .8, .2, 1) 240ms forwards;
         }
 
+        .map-helper-toggle {
+            display: none;
+        }
+
+        @media (max-width: 780px) {
+            .map-canvas {
+                display: block;
+                padding: 12px 12px 14px;
+            }
+
+            .map-canvas svg {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .map-helper-toggle {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                left: auto;
+                z-index: 6;
+                width: 42px;
+                height: 42px;
+                padding: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(255, 214, 205, 0.16);
+                border-radius: 999px;
+                background:
+                    linear-gradient(160deg, rgba(128, 53, 44, 0.92), rgba(92, 31, 27, 0.94)),
+                    rgba(94, 33, 28, 0.92);
+                color: #ffdca0;
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.12),
+                    0 14px 24px rgba(82, 22, 18, 0.18);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                cursor: pointer;
+                transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease), background var(--ease);
+            }
+
+            .map-helper-toggle:hover,
+            .map-helper-toggle:focus-visible,
+            .map-helper-toggle[aria-expanded="true"] {
+                outline: none;
+                transform: translateY(-1px);
+                border-color: rgba(255, 214, 205, 0.22);
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.14),
+                    0 18px 28px rgba(82, 22, 18, 0.22);
+            }
+
+            .map-helper-toggle svg {
+                width: 18px;
+                height: 18px;
+                display: block;
+                filter: drop-shadow(0 0 10px rgba(255, 208, 90, 0.2));
+            }
+
+            .map-helper {
+                position: absolute;
+                top: 66px;
+                left: 16px;
+                right: auto;
+                z-index: 5;
+                width: min(252px, calc(100% - 32px));
+                padding: 11px 12px 12px;
+                border-radius: 18px;
+                background:
+                    linear-gradient(160deg, rgba(128, 53, 44, 0.9), rgba(92, 31, 27, 0.92)),
+                    rgba(94, 33, 28, 0.9);
+                border: 1px solid rgba(255, 214, 205, 0.16);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-8px) scale(0.98);
+                animation: none;
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.12),
+                    0 16px 28px rgba(82, 22, 18, 0.18);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                transition:
+                    opacity 220ms ease,
+                    transform 220ms ease,
+                    visibility 220ms ease;
+            }
+
+            .map-helper.is-open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0) scale(1);
+            }
+
+            .map-helper-head {
+                gap: 8px;
+                margin-bottom: 7px;
+            }
+
+            .map-helper strong {
+                font-size: 0.7rem;
+                line-height: 1.1;
+                letter-spacing: 0.15em;
+            }
+
+            .map-helper span {
+                font-size: 0.79rem;
+                line-height: 1.48;
+                color: rgba(255, 246, 231, 0.92);
+                max-width: 25ch;
+            }
+
+            .map-helper-icon {
+                width: 24px;
+                height: 24px;
+                flex: 0 0 24px;
+                border-radius: 8px;
+            }
+
+            .map-helper-icon svg {
+                width: 13px;
+                height: 13px;
+            }
+        }
+
         .map-helper-head {
             display: inline-flex;
             align-items: center;
@@ -629,14 +757,14 @@ foreach ($districts as $district) {
         }
 
         .island-outline {
-            fill: rgba(255, 249, 247, 0.84);
+            fill: rgba(246, 234, 218, 0.97);
             stroke: none;
-            filter: drop-shadow(0 20px 34px rgba(110, 44, 36, 0.08));
+            filter: drop-shadow(0 22px 38px rgba(90, 32, 28, 0.12));
         }
 
         .district {
-            fill: rgba(255, 245, 242, 0.74);
-            stroke: rgba(255, 255, 255, 0.5);
+            fill: rgba(230, 210, 186, 0.60);
+            stroke: rgba(184, 90, 77, 0.22);
             stroke-width: 1.15;
             vector-effect: non-scaling-stroke;
             cursor: pointer;
@@ -647,16 +775,18 @@ foreach ($districts as $district) {
 
         .district:hover,
         .district:focus-visible {
-            fill: rgba(255, 235, 230, 0.92);
+            fill: rgba(228, 191, 109, 0.52);
+            stroke: rgba(184, 90, 77, 0.38);
             transform: translateY(-2px) scale(1.015);
-            filter: drop-shadow(0 8px 18px rgba(201, 101, 88, 0.16));
+            filter: drop-shadow(0 8px 18px rgba(228, 191, 109, 0.22));
             outline: none;
         }
 
         .district.active {
-            fill: rgba(201, 101, 88, 0.9);
-            stroke: rgba(122, 46, 40, 0.22);
-            filter: drop-shadow(0 12px 20px rgba(201, 101, 88, 0.2));
+            fill: rgba(184, 90, 77, 0.88);
+            stroke: rgba(228, 191, 109, 0.50);
+            stroke-width: 1.4;
+            filter: drop-shadow(0 12px 24px rgba(184, 90, 77, 0.28));
             transform: translateY(-2px) scale(1.02);
         }
 
@@ -961,16 +1091,44 @@ foreach ($districts as $district) {
         }
 
         .project-empty {
-            padding: 18px;
+            padding: 28px 20px;
             border-radius: 18px;
-            background: rgba(255, 248, 246, 0.18);
-            border: 0;
+            background: rgba(255, 248, 246, 0.10);
+            border: 1px solid rgba(255, 214, 205, 0.12);
             color: var(--muted);
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.24),
+                inset 0 1px 0 rgba(255,255,255,0.14),
                 0 12px 24px rgba(88, 33, 28, 0.06);
             backdrop-filter: blur(18px);
+        }
+
+        .project-empty svg {
+            width: 36px;
+            height: 36px;
+            color: rgba(244, 210, 122, 0.6);
+            margin-bottom: 4px;
+        }
+
+        .project-empty strong {
+            display: block;
+            font-size: 0.92rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 231, 195, 0.88);
+        }
+
+        .project-empty span {
+            display: block;
+            font-size: 0.85rem;
+            color: rgba(255, 247, 234, 0.56);
+            max-width: 24ch;
+            line-height: 1.55;
         }
 
         .project-detail-page {
@@ -1418,27 +1576,28 @@ foreach ($districts as $district) {
         }
 
         .island-outline {
-            fill: rgba(255, 250, 240, 0.92);
-            filter: drop-shadow(0 24px 34px rgba(60, 12, 10, 0.14));
+            fill: rgba(246, 234, 218, 0.97);
+            filter: drop-shadow(0 24px 38px rgba(60, 12, 10, 0.16));
         }
 
         .district {
-            fill: rgba(255, 250, 240, 0.78);
-            stroke: rgba(244, 210, 122, 0.34);
+            fill: rgba(230, 210, 186, 0.60);
+            stroke: rgba(184, 90, 77, 0.22);
             stroke-width: 1;
         }
 
         .district:hover,
         .district:focus-visible {
-            fill: rgba(244, 210, 122, 0.48);
-            stroke: rgba(255, 250, 240, 0.56);
-            filter: drop-shadow(0 10px 18px rgba(244, 210, 122, 0.18));
+            fill: rgba(228, 191, 109, 0.52);
+            stroke: rgba(228, 191, 109, 0.50);
+            filter: drop-shadow(0 10px 18px rgba(228, 191, 109, 0.20));
         }
 
         .district.active {
-            fill: rgba(244, 210, 122, 0.92);
-            stroke: rgba(255, 250, 240, 0.78);
-            filter: drop-shadow(0 14px 26px rgba(244, 210, 122, 0.34));
+            fill: rgba(184, 90, 77, 0.88);
+            stroke: rgba(228, 191, 109, 0.60);
+            stroke-width: 1.4;
+            filter: drop-shadow(0 14px 28px rgba(184, 90, 77, 0.30));
         }
 
         .tooltip {
@@ -1625,11 +1784,22 @@ foreach ($districts as $district) {
                 border-radius: 26px;
             }
 
-            .map-helper {
-                top: 14px;
-                right: 14px;
-                width: min(260px, calc(100% - 28px));
-                padding: 12px 13px 12px 15px;
+            .map-shell {
+                min-height: clamp(440px, 74vh, 620px);
+            }
+
+            .map-canvas {
+                min-height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 14px 16px;
+            }
+
+            .map-canvas > svg {
+                width: min(100%, 360px);
+                max-width: 100%;
+                max-height: none;
             }
 
             .map-helper span {
@@ -2502,20 +2672,28 @@ foreach ($districts as $district) {
         <section class="panel map-stage" data-float>
             <div class="map-shell" id="mapShell">
                 <div class="tooltip" id="tooltip"></div>
-                <div class="map-canvas">
-                    <div class="map-helper" aria-hidden="true">
-                        <div class="map-helper-head">
-                            <span class="map-helper-icon">
-                                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M4.5 6.5 9 4l6 2.5L19.5 4v13.5L15 20l-6-2.5L4.5 20z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-                                    <path d="M9 4v13.5M15 6.5V20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-                                    <circle cx="15" cy="10" r="1.6" fill="currentColor"></circle>
-                                </svg>
-                            </span>
-                            <strong>Select Your District</strong>
-                        </div>
-                        <span>Select a district to view key development projects, public investments, and regional progress highlights.</span>
+                <button class="map-helper-toggle" type="button" aria-label="Show district selection help" aria-controls="mapHelper" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+                        <path d="M12 10v5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+                        <circle cx="12" cy="7.4" r="1.15" fill="currentColor"></circle>
+                        <circle cx="12" cy="17.7" r="1.1" fill="currentColor"></circle>
+                    </svg>
+                </button>
+                <div class="map-helper" id="mapHelper" aria-hidden="true">
+                    <div class="map-helper-head">
+                        <span class="map-helper-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M4.5 6.5 9 4l6 2.5L19.5 4v13.5L15 20l-6-2.5L4.5 20z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                                <path d="M9 4v13.5M15 6.5V20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                                <circle cx="15" cy="10" r="1.6" fill="currentColor"></circle>
+                            </svg>
+                        </span>
+                        <strong>Select Your District</strong>
                     </div>
+                    <span>Select a district to view key development projects, public investments, and regional progress highlights.</span>
+                </div>
+                <div class="map-canvas">
                     <svg viewBox="140 40 690 1140" role="img" aria-labelledby="mapTitle mapDesc">
                         <title id="mapTitle">Sri Lanka district project map</title>
                         <desc id="mapDesc">Interactive Sri Lanka map with 25 district shapes and project information per district.</desc>
@@ -2617,6 +2795,8 @@ foreach ($districts as $district) {
                 mapStage: root.querySelector(".map-stage"),
                 mapShell: root.querySelector("#mapShell"),
                 tooltip: root.querySelector("#tooltip"),
+                mapHelper: root.querySelector("#mapHelper"),
+                mapHelperToggle: root.querySelector(".map-helper-toggle"),
                 districtName: root.querySelector("#districtName"),
                 districtSummary: root.querySelector("#districtSummary"),
                 districtProvince: root.querySelector("#districtProvince"),
@@ -2627,6 +2807,58 @@ foreach ($districts as $district) {
             };
 
             let selectedDistrictId = <?php echo json_encode($selectedProjectDistrict['id'] ?? $requestedDistrictId ?: 'hambantota'); ?>;
+            const mobileHelperQuery = window.matchMedia("(max-width: 780px)");
+            let helperAutoCloseTimer = null;
+
+            function stopHelperAutoClose() {
+                if (helperAutoCloseTimer) {
+                    window.clearTimeout(helperAutoCloseTimer);
+                    helperAutoCloseTimer = null;
+                }
+            }
+
+            function closeMobileHelper() {
+                stopHelperAutoClose();
+                if (!elements.mapHelper || !elements.mapHelperToggle || !mobileHelperQuery.matches) {
+                    return;
+                }
+
+                elements.mapHelper.classList.remove("is-open");
+                elements.mapHelper.setAttribute("aria-hidden", "true");
+                elements.mapHelperToggle.setAttribute("aria-expanded", "false");
+            }
+
+            function scheduleHelperAutoClose() {
+                stopHelperAutoClose();
+                if (!mobileHelperQuery.matches) {
+                    return;
+                }
+
+                helperAutoCloseTimer = window.setTimeout(closeMobileHelper, 3200);
+            }
+
+            function openMobileHelper() {
+                if (!elements.mapHelper || !elements.mapHelperToggle || !mobileHelperQuery.matches) {
+                    return;
+                }
+
+                elements.mapHelper.classList.add("is-open");
+                elements.mapHelper.setAttribute("aria-hidden", "false");
+                elements.mapHelperToggle.setAttribute("aria-expanded", "true");
+                scheduleHelperAutoClose();
+            }
+
+            function toggleMobileHelper() {
+                if (!elements.mapHelper || !elements.mapHelperToggle || !mobileHelperQuery.matches) {
+                    return;
+                }
+
+                if (elements.mapHelper.classList.contains("is-open")) {
+                    closeMobileHelper();
+                } else {
+                    openMobileHelper();
+                }
+            }
 
             function escapeHtml(value) {
                 return String(value)
@@ -2639,7 +2871,7 @@ foreach ($districts as $district) {
 
             function renderProjectGrid(projects) {
                 if (!projects.length) {
-                    elements.projectGrid.innerHTML = `<div class="project-empty">No projects found for this district yet. Add rows to the <code>district_projects</code> table to show them here.</div>`;
+                    elements.projectGrid.innerHTML = `<div class="project-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01" stroke-linecap="round"/></svg><strong>Coming Soon</strong><span>Development projects for this district will be announced shortly. Stay tuned for updates.</span></div>`;
                     return;
                 }
 
@@ -2728,6 +2960,7 @@ foreach ($districts as $district) {
                 syncSidePanelHeight();
                 syncProjectGridHeight();
                 elements.projectGrid.scrollTop = 0;
+                closeMobileHelper();
             }
 
             function getPointerPosition(event, district) {
@@ -2767,6 +3000,56 @@ foreach ($districts as $district) {
                     }
                 });
             });
+
+            if (elements.mapHelper && elements.mapHelperToggle) {
+                elements.mapHelperToggle.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    toggleMobileHelper();
+                });
+
+                elements.mapHelper.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                });
+
+                document.addEventListener("click", (event) => {
+                    if (!mobileHelperQuery.matches || !elements.mapHelper.classList.contains("is-open")) {
+                        return;
+                    }
+
+                    const target = event.target;
+                    if (!(target instanceof Node)) {
+                        return;
+                    }
+
+                    if (elements.mapHelper.contains(target) || elements.mapHelperToggle.contains(target)) {
+                        return;
+                    }
+
+                    closeMobileHelper();
+                });
+
+                document.addEventListener("keydown", (event) => {
+                    if (event.key === "Escape") {
+                        closeMobileHelper();
+                    }
+                });
+
+                const handleMobileHelperModeChange = () => {
+                    stopHelperAutoClose();
+                    if (!mobileHelperQuery.matches) {
+                        elements.mapHelper.classList.remove("is-open");
+                        elements.mapHelper.setAttribute("aria-hidden", "true");
+                        elements.mapHelperToggle.setAttribute("aria-expanded", "false");
+                    }
+                };
+
+                if (typeof mobileHelperQuery.addEventListener === "function") {
+                    mobileHelperQuery.addEventListener("change", handleMobileHelperModeChange);
+                } else if (typeof mobileHelperQuery.addListener === "function") {
+                    mobileHelperQuery.addListener(handleMobileHelperModeChange);
+                }
+            }
 
             window.addEventListener("resize", () => {
                 syncSidePanelHeight();
