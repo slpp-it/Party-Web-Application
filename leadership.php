@@ -1088,9 +1088,6 @@ $leadershipAppId = $leadershipEmbed ? 'leadership-app-' . substr(md5((string) mt
 <?php endif; ?>
     <section id="<?php echo htmlspecialchars($leadershipAppId, ENT_QUOTES, 'UTF-8'); ?>" class="leadership-app">
         <div class="leadership-shell" data-float>
-            <div class="leadership-head">
-                <span class="leadership-kicker" data-float>Leadership</span>
-            </div>
 
             <div class="leadership-slider">
                 <div class="leadership-slider-header" data-float style="--float-delay: 80ms;">

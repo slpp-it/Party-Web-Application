@@ -851,7 +851,6 @@ $visionHeroVideo = 'images/vision_piller/vision-bg.mp4';
 
             <section class="vision-carousel vision-reveal" style="--vision-delay: 140ms;" aria-label="Vision pillars">
                 <div class="vision-carousel-head">
-                    <strong>Vision Pillars</strong>
                     <div class="vision-carousel-controls">
                         <button class="vision-carousel-btn" type="button" data-vision-prev aria-label="Previous vision cards" <?php echo $visionPillars === [] ? 'disabled' : ''; ?>>&#8592;</button>
                         <button class="vision-carousel-btn" type="button" data-vision-next aria-label="Next vision cards" <?php echo $visionPillars === [] ? 'disabled' : ''; ?>>&#8594;</button>

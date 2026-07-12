@@ -205,17 +205,15 @@ $partyHistory = party_history_group_years($partyHistory);
 $partyEmbed = !empty($GLOBALS['OUR_PARTY_EMBED']);
 $partyAppId = $partyEmbed ? 'party-app-' . substr(md5((string) mt_rand()), 0, 8) : 'party-app';
 $partyJson = json_encode($partyHistory, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-$partyIntro = 'The Sri Lanka Podujana Peramuna (SLPP) is a relatively modern political party in Sri Lanka, formally established in 2016. It emerged during a period of political transition following the 2015 general elections, when former President Mahinda Rajapaksa lost power. The party was organized primarily by Basil Rajapaksa, with strong political backing and leadership influence from Mahinda Rajapaksa, and it quickly became the central platform for the Joint Opposition.
+$partyIntro = 'The Sri Lanka Podujana Peramuna (SLPP) is a political party in Sri Lanka that was formally established in 2016. It emerged after the 2015 general election, during a period of transition in national politics, and was closely associated with figures from the Rajapaksa family, particularly Basil Rajapaksa and Mahinda Rajapaksa.
 
-From its early stages, the SLPP focused on building a strong grassroots network across the country, appealing particularly to rural communities and voters who supported the Rajapaksa leadership. The party’s symbol, the “Pohottuwa” (flower bud), soon became widely recognized, representing growth and renewal. By 2018, the SLPP demonstrated its rising popularity by securing a significant victory in the local government elections, establishing itself as a dominant political force in Sri Lanka.
+In its early years, the party focused on building a broad grassroots base and consolidating support among voters who identified with the Rajapaksa political network. Its symbol, the “Pohottuwa” or flower bud, became one of the party’s most recognizable identifiers and was widely used in its election campaigns and political messaging.
 
-The party reached its peak in 2019 when Gotabaya Rajapaksa, representing the SLPP, won the presidential election with a clear mandate. This victory marked a turning point, bringing the party into full national power. In 2020, the SLPP further consolidated its position by winning a landslide victory in the parliamentary elections, enabling the formation of a strong government with Mahinda Rajapaksa serving as Prime Minister.
+The SLPP achieved a major breakthrough in the 2018 local government elections, where it secured a strong nationwide performance and established itself as a leading political force. That momentum continued in 2019, when Gotabaya Rajapaksa won the presidential election as the party’s candidate, followed by a decisive parliamentary victory in 2020 that enabled a government led by Mahinda Rajapaksa as Prime Minister.
 
-During its time in power, the SLPP pursued policies focused on national development, infrastructure, and economic management. However, by 2022, Sri Lanka faced a severe economic crisis, leading to widespread public protests and political instability. As a result, President Gotabaya Rajapaksa resigned, marking a significant setback for the party and altering the political landscape.
+During its period in government, the SLPP promoted policies centered on infrastructure, development, and administrative coordination. The party’s position later weakened during the 2022 economic crisis, which triggered public unrest and led to the resignation of President Gotabaya Rajapaksa. The crisis marked a turning point in the party’s trajectory and reshaped the wider political environment.
 
-Following this period, the SLPP entered a phase of reorganization and recovery, attempting to rebuild public trust and redefine its political direction. In the 2024 presidential election, the party experienced a major decline in support, and its performance in subsequent parliamentary elections reflected a reduced political presence.
-
-Overall, the history of the SLPP is characterized by a rapid rise to power within a short period, followed by a significant decline influenced by economic and political challenges. Despite these setbacks, the party remains an important political entity in Sri Lanka, with ongoing efforts to reshape its future role in the country’s political landscape.';
+Since then, the SLPP has remained active in Sri Lankan politics while attempting to reorganize its public image and political direction. Its recent electoral performance has reflected a reduced level of support compared with its peak years, but the party continues to retain a visible role in the country’s political discourse.';
 $partyIntroParagraphs = array_values(array_filter(
     array_map('trim', preg_split("/\R{2,}/", $partyIntro) ?: []),
     static fn (string $paragraph): bool => $paragraph !== ''
@@ -426,11 +424,12 @@ $partyTimelineRecords = array_sum(array_map(
 
         .party-intro-copy {
             margin: 0;
-            color: rgba(255, 248, 236, 0.92);
-            line-height: 1.92;
-            font-size: clamp(1.02rem, 1.4vw, 1.14rem);
+            color: rgba(255, 248, 236, 0.96);
+            line-height: 2.04;
+            font-size: clamp(1.1rem, 1.75vw, 1.28rem);
             font-weight: 400;
-            letter-spacing: 0.01em;
+            letter-spacing: 0;
+            font-family: Georgia, "Times New Roman", serif;
             max-width: none;
             width: 100%;
             display: -webkit-box;
@@ -1164,7 +1163,6 @@ $partyTimelineRecords = array_sum(array_map(
                 <div class="party-rail-actions">
                     <button class="party-rail-action" type="button" id="partyPrevYear" aria-label="Previous year">‹</button>
                     <button class="party-rail-action" type="button" id="partyNextYear" aria-label="Next year">›</button>
-                    <div class="party-rail-chip">Year slider</div>
                 </div>
             </div>
             <div class="party-rail-track" id="partyYearTrack" aria-label="Party history year slider"></div>

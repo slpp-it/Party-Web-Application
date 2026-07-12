@@ -204,6 +204,8 @@ unset($district);
 $districtData = json_encode($districts, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 $slEmbed = !empty($GLOBALS['SL_EMBED']);
 $slAppId = $slEmbed ? 'sl-app-' . substr(md5((string) mt_rand()), 0, 8) : 'sl-app';
+$projectsPageTitle = trim((string) ($GLOBALS['PROJECTS_PAGE_TITLE'] ?? 'Projects'));
+$projectsPageTitle = $projectsPageTitle !== '' ? $projectsPageTitle : 'Projects';
 $requestedDistrictId = isset($_GET['district']) ? strtolower((string) $_GET['district']) : 'hambantota';
 $requestedProjectSlug = isset($_GET['project']) ? strtolower((string) $_GET['project']) : '';
 $selectedProjectDistrict = null;
@@ -230,7 +232,7 @@ foreach ($districts as $district) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Lanka District Project Map</title>
+    <title><?php echo htmlspecialchars($projectsPageTitle, ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="icon" type="image/x-icon" href="images/slpp.ico">
 <?php endif; ?>
     <style>
@@ -2622,10 +2624,10 @@ foreach ($districts as $district) {
     })();
 </script>
 <?php endif; ?>
-<?php if (!$slEmbed && $selectedProject && $selectedProjectDistrict): ?>
+<?php if ($selectedProject && $selectedProjectDistrict): ?>
     <section class="project-detail-page">
         <div class="project-detail-shell">
-            <a class="back-link" href="index.php#districts" data-float>&larr; Back</a>
+            <a class="back-link" href="projects.php" data-float>&larr; Back</a>
             <article class="panel project-detail-hero" data-float style="--float-delay: 70ms;">
                 <div class="project-detail-visual" data-float style="--float-delay: 140ms;">
                     <div class="project-detail-backdrop" style="background-image:url('<?php echo htmlspecialchars($selectedProject['image'], ENT_QUOTES, 'UTF-8'); ?>')"></div>
@@ -2742,7 +2744,7 @@ foreach ($districts as $district) {
         </main>
     </section>
 <?php endif; ?>
-<?php if (!$slEmbed && $selectedProject && $selectedProjectDistrict): ?>
+<?php if ($selectedProject && $selectedProjectDistrict): ?>
     <div id="viewer360" class="viewer360" aria-hidden="true">
         <div class="viewer360-inner">
             <img id="viewer360Image" src="" alt="Project image enlarged view" loading="lazy" decoding="async">
@@ -2780,7 +2782,7 @@ foreach ($districts as $district) {
         })();
     </script>
 
-<?php if (!(!$slEmbed && $selectedProject && $selectedProjectDistrict)): ?>
+<?php if (!($selectedProject && $selectedProjectDistrict)): ?>
     <script>
         (() => {
             const root = document.getElementById(<?php echo json_encode($slAppId); ?>);
@@ -2886,7 +2888,7 @@ foreach ($districts as $district) {
                                 <h3 class="project-name">${escapeHtml(project.title)}</h3>
                                 <p class="project-line">${escapeHtml(project.caption)}</p>
                             </div>
-                            <a class="read-more" href="sl.php?district=${encodeURIComponent(selectedDistrictId)}&project=${encodeURIComponent(project.slug)}" aria-label="Open ${escapeHtml(project.title)}">
+                            <a class="read-more" href="projects.php?district=${encodeURIComponent(selectedDistrictId)}&project=${encodeURIComponent(project.slug)}" aria-label="Open ${escapeHtml(project.title)}">
                                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
                                 </svg>

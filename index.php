@@ -298,7 +298,13 @@ $sectionNavItems = [
     ['id' => 'vision', 'label' => 'Vision'],
     ['id' => 'our-party', 'label' => 'Our Party'],
     ['id' => 'leadership', 'label' => 'Leadership'],
-    ['id' => 'districts', 'label' => 'Projects'],
+];
+
+$heroNavItems = [
+    ['href' => '#vision', 'label' => 'Vision'],
+    ['href' => '#our-party', 'label' => 'Our Party'],
+    ['href' => '#leadership', 'label' => 'Leadership'],
+    ['href' => 'projects.php', 'label' => 'Projects'],
 ];
 ?>
 <!DOCTYPE html>
@@ -309,7 +315,7 @@ $sectionNavItems = [
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
-    <meta name="theme-color" content="#b85a4d">
+    <meta name="theme-color" content="#9a4a41">
     
     <!-- Primary SEO Meta Tags -->
     <title>Sri Lanka People's Front | ශ්‍රී ලංකා පොදුජන පෙරමුණ | இலங்கை பொதுஜன முன்னணி - SLPP Podujana Peramuna</title>
@@ -433,6 +439,7 @@ $sectionNavItems = [
             --hero-glass: rgba(255, 248, 238, 0.14);
             --hero-glass-strong: rgba(255, 248, 238, 0.2);
             --hero-border: rgba(255, 237, 205, 0.2);
+            --hero-ui-font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
         }
 
         html {
@@ -460,9 +467,9 @@ $sectionNavItems = [
         body {
             margin: 0;
             background:
-                radial-gradient(circle at top left, rgba(201, 104, 86, 0.24), transparent 24%),
-                radial-gradient(circle at top right, rgba(228, 191, 109, 0.22), transparent 28%),
-                linear-gradient(180deg, #9f4f47 0%, #b76052 18%, #c77158 34%, #da975f 54%, #e6b765 72%, #efcf93 88%, #f3dcc2 100%);
+                radial-gradient(circle at top left, rgba(219, 137, 123, 0.22), transparent 24%),
+                radial-gradient(circle at top right, rgba(255, 198, 170, 0.1), transparent 28%),
+                linear-gradient(180deg, #9b4a42 0%, #a94f46 20%, #8e4139 52%, #7f382f 78%, #6e2d26 100%);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -472,9 +479,9 @@ $sectionNavItems = [
             overflow: hidden;
             padding: 0 0 18px;
             background:
-                radial-gradient(circle at left top, rgba(194, 94, 82, 0.28), transparent 26%),
-                radial-gradient(circle at right top, rgba(230, 192, 110, 0.36), transparent 28%),
-                linear-gradient(145deg, #8b433d 0%, #b76052 34%, #e2b961 100%);
+                radial-gradient(circle at left top, rgba(210, 115, 100, 0.32), transparent 26%),
+                radial-gradient(circle at right top, rgba(255, 186, 156, 0.12), transparent 28%),
+                linear-gradient(145deg, #8f433b 0%, #a94f46 42%, #7d352e 100%);
         }
 
         .top-hero::before {
@@ -494,9 +501,9 @@ $sectionNavItems = [
             padding: 14px 14px 0;
             border-radius: 0;
             background:
-                radial-gradient(circle at top left, rgba(255, 216, 144, 0.18), transparent 26%),
-                radial-gradient(circle at bottom right, rgba(124, 41, 36, 0.16), transparent 28%),
-                linear-gradient(145deg, rgba(139, 67, 61, 0.82), rgba(183, 96, 82, 0.78), rgba(226, 185, 97, 0.7));
+                radial-gradient(circle at top left, rgba(255, 219, 199, 0.08), transparent 26%),
+                radial-gradient(circle at bottom right, rgba(84, 26, 22, 0.2), transparent 28%),
+                linear-gradient(145deg, rgba(141, 64, 56, 0.9), rgba(166, 78, 69, 0.86), rgba(125, 53, 46, 0.9));
         }
 
         .hero-nav {
@@ -758,6 +765,7 @@ $sectionNavItems = [
             border-radius: 999px;
             background: rgba(255,255,255,0.07);
             border: 1px solid rgba(255, 240, 214, 0.16);
+            font-family: var(--hero-ui-font);
             font-size: 0.9rem;
             font-weight: 500;
             letter-spacing: 0.01em;
@@ -1588,10 +1596,10 @@ $sectionNavItems = [
             padding-top: 18px;
             padding-bottom: 32px;
             background:
-                radial-gradient(circle at top left, rgba(194, 94, 82, 0.24), transparent 24%),
-                radial-gradient(circle at top right, rgba(230, 192, 110, 0.26), transparent 28%),
-                radial-gradient(circle at bottom right, rgba(124, 41, 36, 0.18), transparent 26%),
-                linear-gradient(180deg, rgba(143, 67, 61, 0.98) 0%, rgba(183, 96, 82, 0.94) 20%, rgba(206, 120, 87, 0.9) 42%, rgba(226, 185, 97, 0.84) 70%, rgba(243, 220, 194, 0.78) 100%);
+                radial-gradient(circle at top left, rgba(206, 108, 94, 0.2), transparent 24%),
+                radial-gradient(circle at top right, rgba(255, 192, 165, 0.08), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(88, 29, 24, 0.18), transparent 26%),
+                linear-gradient(180deg, rgba(143, 67, 61, 0.98) 0%, rgba(132, 58, 52, 0.96) 24%, rgba(122, 51, 46, 0.95) 58%, rgba(103, 40, 35, 0.96) 100%);
         }
 
         .page-main::before {
@@ -1608,9 +1616,9 @@ $sectionNavItems = [
             position: relative;
             padding: 18px 0 0;
             background:
-                radial-gradient(circle at top left, rgba(238, 192, 111, 0.12), transparent 24%),
-                radial-gradient(circle at bottom right, rgba(133, 46, 40, 0.18), transparent 28%),
-                linear-gradient(180deg, rgba(120, 51, 45, 0.96), rgba(80, 28, 25, 0.98));
+                radial-gradient(circle at top left, rgba(204, 112, 96, 0.14), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(80, 26, 22, 0.24), transparent 28%),
+                linear-gradient(180deg, rgba(110, 42, 37, 0.98), rgba(74, 24, 21, 0.99));
         }
 
         .site-footer::before {
@@ -1629,11 +1637,12 @@ $sectionNavItems = [
             margin: 0 auto;
             padding: clamp(24px, 3.4vw, 38px) clamp(18px, 3vw, 38px) clamp(20px, 2.6vw, 26px);
             border-radius: 34px 34px 0 0;
-            border: 1px solid rgba(255, 236, 205, 0.12);
+            border: 1px solid rgba(255, 227, 216, 0.10);
             border-bottom: 0;
+            font-family: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
             background:
-                linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.015)),
-                linear-gradient(135deg, rgba(129, 48, 42, 0.42), rgba(66, 23, 21, 0.58));
+                linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.012)),
+                linear-gradient(135deg, rgba(122, 46, 41, 0.52), rgba(61, 19, 17, 0.68));
             box-shadow:
                 inset 0 1px 0 rgba(255,255,255,0.08),
                 0 -1px 0 rgba(255,255,255,0.04),
@@ -1719,8 +1728,9 @@ $sectionNavItems = [
         .footer-brand h2 {
             font-size: clamp(1.1rem, 1.8vw, 1.5rem);
             line-height: 1.08;
-            letter-spacing: -0.03em;
-            font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            letter-spacing: -0.02em;
+            font-family: inherit;
+            font-weight: 700;
         }
 
         .party-name-sub {
@@ -1741,7 +1751,11 @@ $sectionNavItems = [
         .footer-card p,
         .footer-contact-link,
         .footer-bottom,
-        .footer-link-list a {
+        .footer-link-list a,
+        .footer-card h3,
+        .footer-contact-label,
+        .footer-social-link,
+        .footer-bottom-links a {
             color: rgba(255, 243, 223, 0.8);
         }
 
@@ -2209,6 +2223,7 @@ $sectionNavItems = [
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 700;
             line-height: 1.3;
+            font-family: var(--hero-ui-font);
         }
 
         .section-tree-nav-link:hover .section-tree-nav-label,
@@ -2369,7 +2384,7 @@ $sectionNavItems = [
             text-transform: none;
             text-shadow: 0 2px 12px rgba(61, 18, 17, 0.16);
             clear: both;
-            font-family: "Gill Sans", "Avenir Next Condensed", "Trebuchet MS", "Segoe UI", sans-serif;
+            font-family: var(--hero-ui-font);
             position: relative;
             z-index: 1;
         }
@@ -2528,42 +2543,52 @@ $sectionNavItems = [
             }
 
             .hero-nav {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                grid-template-areas:
+                    "brand toggle"
+                    "panel panel";
                 align-items: center;
                 padding: 14px;
                 border-radius: 20px;
+                gap: 12px 12px;
             }
 
             .hero-brand {
+                grid-area: brand;
                 justify-content: flex-start;
             }
 
             .hero-menu-toggle {
+                grid-area: toggle;
                 display: inline-flex;
                 margin-left: auto;
+                justify-self: end;
             }
 
             .hero-nav-panel {
-                display: flex;
+                grid-area: panel;
                 width: 100%;
                 flex-basis: 100%;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                grid-template-areas:
+                    "social phone"
+                    "links links";
+                align-items: center;
+                gap: 10px 14px;
+                max-height: none;
+                overflow: visible;
+                opacity: 1;
                 padding-top: 0;
                 margin-left: 0;
                 transition:
-                    max-height 320ms cubic-bezier(.22, .84, .24, 1),
                     opacity 220ms ease,
                     padding-top 220ms ease;
             }
 
             .hero-nav.is-menu-open .hero-nav-panel {
-                max-height: 420px;
-                opacity: 1;
-                padding-top: 8px;
+                padding-top: 0;
             }
 
             .hero-nav.is-menu-open .hero-links a,
@@ -2574,6 +2599,9 @@ $sectionNavItems = [
             }
 
             .hero-links {
+                display: none;
+                grid-area: links;
+                width: 100%;
                 justify-content: stretch;
                 flex-direction: column;
                 margin: 0;
@@ -2581,6 +2609,10 @@ $sectionNavItems = [
                 border-radius: 18px;
                 background: rgba(255,255,255,0.06);
                 border: 1px solid rgba(255, 240, 214, 0.12);
+            }
+
+            .hero-nav.is-menu-open .hero-links {
+                display: flex;
             }
 
             .hero-links a,
@@ -2599,7 +2631,24 @@ $sectionNavItems = [
 
             .hero-social,
             .hero-phone {
-                display: none;
+                display: inline-flex;
+                width: auto;
+            }
+
+            .hero-social {
+                grid-area: social;
+                flex: 1 1 auto;
+                justify-content: flex-start;
+                margin: 0;
+                min-width: 0;
+            }
+
+            .hero-phone {
+                grid-area: phone;
+                flex: 0 0 auto;
+                justify-self: end;
+                white-space: nowrap;
+                padding: 8px 14px;
             }
 
             .hero-carousel {
@@ -2756,6 +2805,26 @@ $sectionNavItems = [
             .hero-action {
                 font-size: 0.82rem;
                 padding: 9px 12px;
+            }
+
+            .hero-social {
+                gap: 0;
+                min-width: 0;
+            }
+
+            .hero-social .social-icon {
+                width: 34px;
+                height: 34px;
+            }
+
+            .hero-social .social-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .hero-phone {
+                font-size: 0.8rem;
+                padding: 7px 12px;
             }
 
             .hero-slide {
@@ -3241,9 +3310,9 @@ $sectionNavItems = [
 <section class="top-hero" id="top">
     <div class="hero-shell">
         <nav class="hero-nav" aria-label="Main navigation">
-            <a class="hero-brand" href="#top" aria-label="Home">
-                <img class="hero-brand-logo" src="images/testlogo.png" alt="Logo">
-            </a>
+                <a class="hero-brand" href="#top" aria-label="Home">
+                    <img class="hero-brand-logo" src="images/testlogo.png" alt="Logo">
+                </a>
             <button class="hero-menu-toggle" type="button" aria-expanded="false" aria-controls="heroNavPanel" aria-label="Toggle navigation menu">
                 <span class="hero-menu-toggle-icon" aria-hidden="true">
                     <span class="hero-menu-toggle-line"></span>
@@ -3253,8 +3322,8 @@ $sectionNavItems = [
             </button>
             <div class="hero-nav-panel" id="heroNavPanel">
                 <div class="hero-links">
-                    <?php foreach ($sectionNavItems as $index => $item): ?>
-                        <a href="#<?php echo htmlspecialchars($item['id'], ENT_QUOTES, 'UTF-8'); ?>" style="--nav-index: <?php echo $index; ?>;">
+                    <?php foreach ($heroNavItems as $index => $item): ?>
+                        <a href="<?php echo htmlspecialchars($item['href'], ENT_QUOTES, 'UTF-8'); ?>" style="--nav-index: <?php echo $index; ?>;">
                             <?php echo htmlspecialchars($item['label'], ENT_QUOTES, 'UTF-8'); ?>
                         </a>
                     <?php endforeach; ?>
@@ -3382,14 +3451,6 @@ $sectionNavItems = [
         ?>
     </div>
 
-    <?php render_section_separator('districts', 'What we Build for a Nation'); ?>
-    <div class="page-section-chunk">
-        <?php
-        $GLOBALS['SL_EMBED'] = true;
-        include __DIR__ . '/sl.php';
-        unset($GLOBALS['SL_EMBED']);
-        ?>
-    </div>
 </section>
 
 <footer class="site-footer">
@@ -3414,7 +3475,7 @@ $sectionNavItems = [
                     <li><a href="#vision">Vision</a></li>
                     <li><a href="#our-party">Our Party</a></li>
                     <li><a href="#leadership">Leadership</a></li>
-                    <li><a href="#districts">Projects</a></li>
+                    <li><a href="projects.php">Projects</a></li>
                 </ul>
             </section>
 
@@ -3571,6 +3632,22 @@ $sectionNavItems = [
                 link.addEventListener("click", (e) => {
                     e.preventDefault();
                     e.stopPropagation();
+
+                    const href = link.getAttribute("href") || "";
+                    if (href.startsWith("#")) {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            });
+
+                            if (history.pushState) {
+                                history.pushState(null, "", href);
+                            }
+                        }
+                    }
+
                     sectionTreeNav.classList.remove("is-expanded");
                     sectionTreeNavToggle.setAttribute("aria-expanded", "false");
                 });

@@ -11,15 +11,15 @@ if (!defined('DB_PORT')) {
 }
 
 if (!defined('DB_NAME')) {
-    define('DB_NAME', getenv('DB_NAME') ?: 'partyapp');
+    define('DB_NAME', getenv('DB_NAME') ?: 'slppyou1_partyapp');
 }
 
 if (!defined('DB_USER')) {
-    define('DB_USER', getenv('DB_USER') ?: 'slppapp');
+    define('DB_USER', getenv('DB_USER') ?: 'slppyou1_slppapp');
 }
 
 if (!defined('DB_PASS')) {
-    define('DB_PASS', getenv('DB_PASS') !== false ? getenv('DB_PASS') : 'slpp');
+    define('DB_PASS', getenv('DB_PASS') !== false ? getenv('DB_PASS') : 'slpphead@123');
 }
 
 function getDbConnection(): PDO
