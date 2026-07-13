@@ -11,11 +11,11 @@ if (!defined('DB_PORT')) {
 }
 
 if (!defined('DB_NAME')) {
-    define('DB_NAME', getenv('DB_NAME') ?: 'slppyou1_partyapp');
+    define('DB_NAME', getenv('DB_NAME') ?: 'slpplk_partyapp');
 }
 
 if (!defined('DB_USER')) {
-    define('DB_USER', getenv('DB_USER') ?: 'slppyou1_slppapp');
+    define('DB_USER', getenv('DB_USER') ?: 'slpplk_slppapp');
 }
 
 if (!defined('DB_PASS')) {

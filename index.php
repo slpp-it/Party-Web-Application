@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/translation_toggle.php';
 
 function hero_slide_image(string $primary, string $secondary, string $label): string
 {
@@ -474,6 +475,22 @@ $heroNavItems = [
             -moz-osx-font-smoothing: grayscale;
         }
 
+        .goog-te-banner-frame.skiptranslate,
+        iframe.goog-te-banner-frame {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
+        }
+
+        .goog-tooltip,
+        .goog-tooltip:hover,
+        .goog-text-highlight {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
         .top-hero {
             position: relative;
             overflow: hidden;
@@ -714,6 +731,72 @@ $heroNavItems = [
             margin-left: 0;
         }
 
+        .language-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255, 240, 214, 0.14);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+            white-space: nowrap;
+        }
+
+        .language-toggle-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(255, 244, 222, 0.82);
+        }
+
+        .language-toggle-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .language-toggle-button {
+            min-width: 42px;
+            min-height: 34px;
+            padding: 0 12px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            background: rgba(255,255,255,0.06);
+            color: var(--hero-ink);
+            font: inherit;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: transform 220ms cubic-bezier(.2, .8, .2, 1), background 220ms cubic-bezier(.2, .8, .2, 1), border-color 220ms cubic-bezier(.2, .8, .2, 1), box-shadow 220ms cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .language-toggle-button:hover,
+        .language-toggle-button:focus-visible {
+            outline: none;
+            transform: translateY(-1px);
+            background: rgba(255,255,255,0.13);
+            border-color: rgba(255, 240, 214, 0.22);
+            box-shadow: 0 8px 18px rgba(61, 18, 17, 0.12);
+        }
+
+        .language-toggle-button.is-active {
+            background: linear-gradient(135deg, rgba(244, 214, 143, 0.28), rgba(255,255,255,0.14));
+            border-color: rgba(255, 240, 214, 0.28);
+            box-shadow: 0 10px 20px rgba(61, 18, 17, 0.14);
+        }
+
+        .language-toggle-widget {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
         .hero-nav.is-menu-open .hero-menu-toggle {
             background: rgba(255,255,255,0.16);
             border-color: rgba(255, 240, 214, 0.34);
@@ -813,7 +896,16 @@ $heroNavItems = [
             display: flex;
             align-items: center;
             gap: 0;
-            margin: 0 8px;
+            margin: 0 12px 0 auto;
+        }
+
+        .hero-utility {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex: 0 0 auto;
+            margin-left: 0;
+            padding-left: 6px;
         }
 
         .hero-social .social-icon {
@@ -858,6 +950,22 @@ $heroNavItems = [
             box-shadow: 0 8px 20px rgba(61, 18, 17, 0.12);
         }
 
+        .hero-group-separator {
+            width: 1px;
+            align-self: stretch;
+            min-height: 28px;
+            margin: 0 2px;
+            flex: 0 0 auto;
+            border-radius: 999px;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(255, 240, 214, 0.28) 18%,
+                rgba(255, 240, 214, 0.22) 50%,
+                rgba(255, 240, 214, 0.28) 82%,
+                transparent 100%);
+            opacity: 0.9;
+        }
+
         .hero-phone {
             display: inline-flex;
             align-items: center;
@@ -889,6 +997,33 @@ $heroNavItems = [
             border-color: rgba(255, 240, 214, 0.28);
             transform: translateY(-2px) scale(1.02);
             box-shadow: 0 8px 20px rgba(61, 18, 17, 0.12);
+        }
+
+        .hero-utility .hero-group-separator {
+            margin: 0 4px;
+        }
+
+        .language-toggle--compact {
+            gap: 6px;
+            padding: 6px 8px;
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255, 240, 214, 0.12);
+        }
+
+        .language-toggle--compact .language-toggle-label {
+            display: none;
+        }
+
+        .language-toggle--compact .language-toggle-group {
+            gap: 4px;
+        }
+
+        .language-toggle--compact .language-toggle-button {
+            min-width: 34px;
+            min-height: 30px;
+            padding: 0 10px;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
         }
 
         @media (min-width: 861px) {
@@ -945,7 +1080,8 @@ $heroNavItems = [
             .hero-nav-panel {
                 flex: 0 1 auto;
                 margin-left: auto;
-                gap: 0;
+                gap: 22px;
+                flex-wrap: wrap;
             }
 
             .hero-links {
@@ -958,6 +1094,11 @@ $heroNavItems = [
                     rgba(112, 41, 37, 0.12);
                 border: 1px solid rgba(255, 240, 214, 0.08);
                 box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+            }
+
+            .language-toggle {
+                background: rgba(255,255,255,0.06);
+                border-color: rgba(255, 240, 214, 0.08);
             }
 
             .hero-links a {
@@ -1105,6 +1246,11 @@ $heroNavItems = [
             .hero-phone:hover {
                 background: rgba(255,255,255,0.08);
                 border-color: rgba(255, 240, 214, 0.2);
+            }
+
+            .hero-utility {
+                gap: 22px;
+                padding-left: 4px;
             }
         }
 
@@ -1477,13 +1623,22 @@ $heroNavItems = [
         .hero-button {
             width: 48px;
             height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
             border: 1px solid rgba(255, 235, 201, 0.24);
             border-radius: 999px;
             background: rgba(255,255,255,0.12);
             color: var(--hero-ink);
-            font-size: 1rem;
             cursor: pointer;
             backdrop-filter: blur(18px);
+        }
+
+        .hero-button svg {
+            width: 20px;
+            height: 20px;
+            display: block;
         }
 
         .hero-dots {
@@ -2509,7 +2664,15 @@ $heroNavItems = [
 
             .hero-nav-panel {
                 margin-left: 18px;
-                gap: 14px;
+                gap: 18px;
+            }
+
+            .hero-social {
+                margin-left: auto;
+            }
+
+            .hero-utility {
+                gap: 8px;
             }
 
             .hero-links {
@@ -2557,6 +2720,7 @@ $heroNavItems = [
             .hero-brand {
                 grid-area: brand;
                 justify-content: flex-start;
+                margin-right: 4px;
             }
 
             .hero-menu-toggle {
@@ -2573,10 +2737,10 @@ $heroNavItems = [
                 display: grid;
                 grid-template-columns: minmax(0, 1fr) auto;
                 grid-template-areas:
-                    "social phone"
+                    "social utility"
                     "links links";
                 align-items: center;
-                gap: 10px 14px;
+                gap: 10px 18px;
                 max-height: none;
                 overflow: visible;
                 opacity: 1;
@@ -2643,12 +2807,35 @@ $heroNavItems = [
                 min-width: 0;
             }
 
+            .hero-utility {
+                grid-area: utility;
+                justify-self: end;
+                flex: 0 0 auto;
+                margin-left: 0;
+                padding-left: 0;
+                gap: 20px;
+            }
+
+            .hero-group-separator {
+                min-height: 24px;
+                margin: 0 1px;
+            }
+
             .hero-phone {
-                grid-area: phone;
                 flex: 0 0 auto;
                 justify-self: end;
                 white-space: nowrap;
                 padding: 8px 14px;
+            }
+
+            .language-toggle--compact {
+                padding: 5px 7px;
+            }
+
+            .language-toggle--compact .language-toggle-button {
+                min-width: 32px;
+                min-height: 28px;
+                padding: 0 9px;
             }
 
             .hero-carousel {
@@ -2967,6 +3154,11 @@ $heroNavItems = [
                 box-shadow:
                     inset 0 1px 0 rgba(255,255,255,0.14),
                     0 12px 24px rgba(61, 18, 17, 0.18);
+            }
+
+            .hero-button svg {
+                width: 18px;
+                height: 18px;
             }
 
             .hero-dots {
@@ -3309,7 +3501,7 @@ $heroNavItems = [
 
 <section class="top-hero" id="top">
     <div class="hero-shell">
-        <nav class="hero-nav" aria-label="Main navigation">
+        <nav class="hero-nav notranslate" aria-label="Main navigation" translate="no">
                 <a class="hero-brand" href="#top" aria-label="Home">
                     <img class="hero-brand-logo" src="images/testlogo.png" alt="Logo">
                 </a>
@@ -3328,7 +3520,7 @@ $heroNavItems = [
                         </a>
                     <?php endforeach; ?>
                 </div>
-                <div class="hero-social">
+                <div class="hero-social notranslate" translate="no">
                     <a href="https://www.youtube.com/@Slpp_press" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
@@ -3342,10 +3534,15 @@ $heroNavItems = [
                         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
                 </div>
-                <a href="tel:0112888484" class="hero-phone" aria-label="Call 0112 888 484">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.49-5.15-3.8-6.62-6.63l1.97-1.57c.3-.3.4-.74.24-1.16-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.18 3.18 3.65 3.18 4.19c0 9.27 7.55 16.82 16.82 16.82.54 0 .99-.45.99-.99v-3.65c0-.54-.45-.99-.99-.99z"/></svg>
-                    <span>0112 888 484</span>
-                </a>
+                <span class="hero-group-separator" aria-hidden="true"></span>
+                <div class="hero-utility notranslate" translate="no">
+                    <a href="tel:0112888484" class="hero-phone" aria-label="Call 0112 888 484">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.49-5.15-3.8-6.62-6.63l1.97-1.57c.3-.3.4-.74.24-1.16-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.18 3.18 3.65 3.18 4.19c0 9.27 7.55 16.82 16.82 16.82.54 0 .99-.45.99-.99v-3.65c0-.54-.45-.99-.99-.99z"/></svg>
+                        <span>0112 888 484</span>
+                    </a>
+                    <span class="hero-group-separator" aria-hidden="true"></span>
+                    <?php render_language_toggle('en', true); ?>
+                </div>
             </div>
         </nav>
 
@@ -3392,9 +3589,17 @@ $heroNavItems = [
                     </article>
                 <?php endforeach; ?>
             </div>
-            <div class="hero-controls">
-                <button class="hero-button" type="button" id="heroPrev" aria-label="Previous slide">&#8592;</button>
-                <button class="hero-button" type="button" id="heroNext" aria-label="Next slide">&#8594;</button>
+            <div class="hero-controls notranslate" translate="no">
+                <button class="hero-button" type="button" id="heroPrev" aria-label="Previous slide">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M14.5 6.5 9 12l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="hero-button" type="button" id="heroNext" aria-label="Next slide">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M9.5 6.5 15 12l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
             <div class="hero-dots" id="heroDots" aria-label="Hero slide navigation"></div>
         </div>
